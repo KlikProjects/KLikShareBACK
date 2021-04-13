@@ -1,0 +1,12 @@
+.main {
+    background-color: rgb(110, 64, 7);
+    
+}
+.cover {
+    height: 90vh;
+    background-color: brown;
+}
+.catalog {
+    background-color: blueviolet;
+    height: 90vh;
+}
