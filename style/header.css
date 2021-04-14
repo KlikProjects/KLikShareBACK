@@ -1,4 +1,27 @@
 .header {
+    position: fixed;
+    width: 100%;
+    text-align: center;
     background-color: aquamarine;
-    height: 10vh;
+    height: 18vh;
 }
+
+.flex-container {
+    display:inline-flex;
+    justify-content: center;    
+}
+
+.header img {
+    height: 8vh;
+   
+}
+
+.header figcaption {
+    font-size: 30px;
+} 
+
+.header a {
+    text-decoration: none;
+    color: black;
+}
+
