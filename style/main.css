@@ -26,6 +26,7 @@
 }
 
 .imgcover {
+    margin-top: 18vh;
     height: 70vh;
     -webkit-transition: all 1s;
     -moz-transition: all 1s;
