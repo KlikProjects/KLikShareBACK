@@ -1,4 +1,5 @@
 .header {
+    font-family: 'Roboto', sans-serif;
     position: fixed;
     width: 100vw;
     text-align: center;
@@ -14,14 +15,17 @@
 
 .header img {
     height: 8vh;
-   
+    margin-top: .7em;
 }
 
 .header figcaption {
-    font-size: 4vh;
+    font-weight: 600;
+    font-size: 3vh;
+    margin-bottom: .5em;
 } 
 
 .header a {
+    padding: 5px;
     text-decoration: none;
     color: black;
 }

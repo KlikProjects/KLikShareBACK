@@ -1,3 +1,33 @@
 .footer {
-background-color: bisque;
+background-color: grey ;
+height: 7vh;
+display: flex;
+justify-content: space-between;
+padding-top: 3%;
+padding-left: 10%;
+padding-bottom: 2%;
+
+}
+.ubi{
+
+width: 60vh;
+    
+    
+}
+.ubi-photo{
+    width: 8vh; 
+}
+
+.social {
+       width: 80vh;
+}
+.contact{
+       width: 40vh;
+       }
+.socialphoto{
+    width: 8vh; 
+}
+.tele-photo{
+ width: 8vh;
+    
 }
