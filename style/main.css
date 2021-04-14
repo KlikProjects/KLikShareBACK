@@ -84,7 +84,6 @@
 }
 /*producto*/
 
-
 .item-pro img,
 .item-pro-2 img{
  width: 80%;
@@ -96,8 +95,6 @@
 .item-pro img:hover,
 .item-pro-2 img:hover{
     width: 100%;
-    
-    
 }
 
 .items-pro,
@@ -105,7 +102,6 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-   
 }
 
 .container_product {
