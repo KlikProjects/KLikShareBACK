@@ -10,7 +10,6 @@ function infoGenerator() {
           <h3 class="product_name">Product Name</h3>
           <p class="reviews">⭐️⭐️⭐️⭐️12377 Reviews</p>
           <p class="price">$ 180</p>
-          numer
           <input class="number_product" type="number" placeholder="0"/>
           <button class="button_addCart">Add to cart</button>
         </aside>
