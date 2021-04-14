@@ -26,11 +26,11 @@ function infoGenerator() {
 
 function items() {
     let listItems = ""
-    let number = 8
+    let number = newList.length
     for (let i = 0; i < number; i++) {
         listItems += `
     <div class="item-pro" onclick="infoGenerator()">
-        <img src="recurso/img.jpg" alt="">
+        <img src="${newList[i].img}" alt="${newList[i].alt}">
     </div>
     `
     }
