@@ -2,7 +2,7 @@
 .main {
     /*border: 10px solid yellow;*/
     width: 100%;
-    
+    font-family: 'Roboto', sans-serif;
 }
 .gridimg {
     display: grid;
@@ -24,6 +24,7 @@
     align-self: center;
     z-index: 9;
     font-size: 15vh;
+    color: aquamarine;
 }
 
 .imgcover {
