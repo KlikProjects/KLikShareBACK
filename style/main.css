@@ -24,7 +24,7 @@
 .cover p {
     position: absolute;
     align-self: center;
-    z-index: 10;
+    z-index: 9;
     font-size: 15vh;
 }
 
@@ -47,6 +47,8 @@
 }
 
 .catalog {
+    padding-top: 20vh;
+    margin-top: 18vh;
     background-color: blueviolet;
     height: 120vh;
    /* border: 10px solid rgb(15, 15, 13);*/

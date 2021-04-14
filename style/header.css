@@ -4,6 +4,7 @@
     text-align: center;
     background-color: aquamarine;
     height: 18vh;
+    z-index: 10;
 }
 
 .flex-container {
