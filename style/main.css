@@ -96,7 +96,7 @@
  width: 80%;
  height: 300px;
  border-radius: 10%;
- -webkit-transition: 0.5s ease-in-out;
+ transition: 0.5s ease-in-out;
 
 }
 .item-pro img:hover,
