@@ -1,11 +1,13 @@
-function infoGenerator() {
+function infoGenerator(content) {  
+    let photosind = content.id
+
     let newProduct = ""
     newProduct += `
     <section class="container_product">
     <div class="product_description">
       <section>
-        <button class="button_close">X</button>
-        <img class="photo_product" src="/_107435681_perro1.jpg" />
+        <button class="button_close" onclick="closeficha()">X</button>
+        <img class="photo_product" src="${newList[photosind].img}" />
         <aside class="info">
           <h3 class="product_name">Product Name</h3>
           <p class="reviews">⭐️⭐️⭐️⭐️12377 Reviews</p>
@@ -28,7 +30,7 @@ function items() {
     let number = newList.length
     for (let i = 0; i < number; i++) {
         listItems += `
-    <div class="item-pro" onclick="infoGenerator()">
+    <div class="item-pro" onclick="infoGenerator(this)" id="${newList[i].index}">
         <img src="${newList[i].img}" alt="${newList[i].alt}">
     </div>
     `
@@ -37,3 +39,7 @@ function items() {
     document.querySelector(".items-pro").innerHTML = listItems
 }
 items()
+
+function closeficha() {
+  document.getElementById("root").innerHTML = ""
+}
