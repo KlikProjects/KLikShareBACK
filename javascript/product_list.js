@@ -4,28 +4,28 @@ const newList = [
         alt: "gafas de mujer",
         img: "photos/glassesItems/itemGlasses1.jpg",
         id: "gafas_normal", 
-        index:0
+        index: 0
     },
     {
         name: "Gafas hombre",
         alt: "gafas de hombre",
         img: "photos/glassesItems/itemGlasses2.jpg",
         id: "gafas_normal",
-        index:1
+        index: 1
     },
     {
         name: "Gafas de sol",
         alt: "gafas de sol",
         img: "photos/glassesItems/itemGlasses3.jpg",
         id: "gafas_normal",
-        index:2
+        index: 2
     },
     {
         name: "Gafas especiales",
         alt: "gafas especiales",
         img: "photos/glassesItems/itemGlasses4.jpg",
         id: "gafas_normal",
-        index:3
+        index: 3
         
     },
     {
