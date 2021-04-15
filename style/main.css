@@ -76,10 +76,13 @@
     align-self: center;
     position: absolute;
     visibility: hidden;
+    font-size: 3em;
+    color: aquamarine;
+    font-weight: 500;
 }
 
 .item-cat:hover img {
-    opacity: .5;
+    filter: brightness(45%);
 }
 
 .item-cat:hover h3 {
@@ -118,6 +121,7 @@
 }
 
 .container_product {
+    font-family: 'Roboto', sans-serif;
     background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
     height: 100vh;
