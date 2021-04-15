@@ -1,8 +1,9 @@
-
 .main {
     width: 100%;
     font-family: 'Roboto', sans-serif;
 }
+
+/*cover part*/
 .gridimg {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -36,7 +37,7 @@
 
 }
 
-.imgcover:hover{
+.imgcover:hover {
     -ms-transform: scale(1.02);
     -moz-transform: scale(1.02);
     -webkit-transform: scale(1.02);
@@ -44,6 +45,7 @@
     transform:scale(1.02);
 }
 
+/* catalog starts here */
 .catalog {
     padding: 5vh 0 5vh 0;
     background-color: #F8F1F1;
@@ -54,7 +56,8 @@
     margin-bottom: 3vh;
 }
 
-.category{
+/* filter sun/prescription */
+.category {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -62,7 +65,7 @@
     align-items: center;
 }
 
-.item-cat img{
+.item-cat img {
     width: 95%;
     height: 35vh;
     border-radius: 15px;
@@ -83,19 +86,19 @@
     visibility: visible;
 }
 
-.item-cat{
+.item-cat {
     display: flex;
     justify-content: center;
     margin: 20px 0 0 20px;
 }
 
-.items-cat{
+.items-cat {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     width: 100%;
 }
-/*producto*/
+/* products list*/
 
 .item-pro img {
     width: 80%;
