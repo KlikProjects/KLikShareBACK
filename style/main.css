@@ -68,38 +68,25 @@
     border-radius: 15px;
     object-fit: cover;
 }
+
+.item-cat h3 {
+    align-self: center;
+    position: absolute;
+    visibility: hidden;
+}
+
+.item-cat:hover img {
+    opacity: .5;
+}
+
+.item-cat:hover h3 {
+    visibility: visible;
+}
+
 .item-cat{
     display: flex;
     justify-content: center;
     margin: 20px 0 0 20px;
-}
-
-.item-cat .selector-hover h3 {
-    align-self: center;
-    position: absolute;
-    display: block;
-    opacity: .1;
-}
-
-.item-cat .selector-hover {
-    opacity: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
-}
-
-.item-cat .selector-hover h3:hover {
-    opacity: 1;
-}
-.item-cat img:hover {
-    opacity: .5;
-
-
 }
 
 .items-cat{
