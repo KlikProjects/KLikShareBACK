@@ -9,7 +9,7 @@ function infoGenerator(content) {
         <button class="button_close" onclick="closeficha()">X</button>
         <img class="photo_product" src="${newList[photosind].img}" />
         <aside class="info">
-          <h3 class="product_name">Product Name</h3>
+          <h3 class="product_name">${newList[photosind].name}</h3>
           <p class="reviews">⭐️⭐️⭐️⭐️12377 Reviews</p>
           <p class="price">$ 180</p>
           <input class="number_product" type="number" placeholder="0"/>
