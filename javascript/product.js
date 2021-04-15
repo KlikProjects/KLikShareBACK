@@ -10,7 +10,6 @@ function infoGenerator() {
           <h3 class="product_name">Product Name</h3>
           <p class="reviews">⭐️⭐️⭐️⭐️12377 Reviews</p>
           <p class="price">$ 180</p>
-          numer
           <input class="number_product" type="number" placeholder="0"/>
           <button class="button_addCart">Add to cart</button>
         </aside>
@@ -26,11 +25,11 @@ function infoGenerator() {
 
 function items() {
     let listItems = ""
-    let number = 8
+    let number = newList.length
     for (let i = 0; i < number; i++) {
         listItems += `
     <div class="item-pro" onclick="infoGenerator()">
-        <img src="recurso/img.jpg" alt="">
+        <img src="${newList[i].img}" alt="${newList[i].alt}">
     </div>
     `
     }
