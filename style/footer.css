@@ -1,33 +1,35 @@
 .footer {
-    background-color: grey ;
-    height: 7vh;
+    background-color: rgb(182, 221, 208) ;
     display: flex;
-    justify-content: space-between;
-    padding-top: 3%;
-    padding-left: 10%;
-    padding-bottom: 2%;
+    justify-content: space-around;
+    padding: 3% 10%;
+    align-items: center;
 }
 
 .ubi{
-    width: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .ubi-photo{
-    width: 8vh; 
+    width: 5vw; 
+    justify-content: center;
 }
 
 .social {
-    width: 80vh;
+
 }
 
 .contact{
-    width: 40vh;
+    
 }
 
 .socialphoto{
-    width: 8vh; 
+    width: 2.5vw; 
 }
 
 .tele-photo{
-    width: 8vh;
+    width: 2.5vw;
 }

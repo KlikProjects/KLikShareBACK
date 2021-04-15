@@ -5,7 +5,7 @@ function selector(name) {
     newList.map((glasses) =>{
         if (glasses.id === nameselector){
             listItems += `
-            <div class="item-pro" onclick="infoGenerator()" id="${glasses.index}">
+            <div class="item-pro" onclick="infoGenerator(this)" id="${glasses.index}">
             
                 <img src="${glasses.img}" alt="${glasses.alt}">
             </div>
