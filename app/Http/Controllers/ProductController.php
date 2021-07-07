@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('productsForms.create');
     }
 
     /**
@@ -36,7 +36,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $products = Product::create([
+
+            'title' => $request->newtitle,
+            'description' => $request->newdescription,
+            'image' => $request->newimage,
+            'category' => $request->newcategory,
+            'klikcoinsProducts' => $request->newklikcoins,
+        ]);
+
+        return redirect()->route('home');
     }
 
     /**
