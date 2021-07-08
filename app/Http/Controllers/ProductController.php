@@ -68,7 +68,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        return view('productsForms.edit', compact('product'));
     }
 
     /**
@@ -80,7 +81,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+   
+        $product->update($request->all());
+        $product->save();
+
+        return redirect()->route('home');
+  
     }
 
     /**

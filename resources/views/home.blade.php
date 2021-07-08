@@ -11,6 +11,7 @@
                 <p class="card-text">{{$item->description}}</p>
                 <a href="#" class="btn btn-primary">Klikcoins: {{$item->klikcoinsProducts}}</a>
                 <a href="{{route('delete', $item->id)}}"><button type="delete" class="btn btn-primary">Delete</button></a>
+                <a href="{{route('edit', $item->id)}}"><button type="submit" class="btn btn-primary">Edit</button></a>
             </div>
         </div>
         @endforeach
