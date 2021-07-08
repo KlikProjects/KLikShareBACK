@@ -30,7 +30,9 @@ Route::get('/delete/{id}', [ProductController::class, 'destroy'])->name('delete'
 
 Route::post('/', [ProductController::class, 'store'])->name('store');
 
-Route::get('/ {id}', [ProductController::class, 'destroy'])->name('delete');
+Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
+
+Route::put('/update/{id}', [ProductController::class, 'update'])->name('update');
 
 // Auth::routes();
 
