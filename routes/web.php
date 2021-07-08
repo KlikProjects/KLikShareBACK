@@ -26,9 +26,11 @@ Route::get('/', [ProductController::class, 'index'])->name('home');
 
 Route::get('/create', [ProductController::class, 'create'])->name('create');
 
+Route::get('/delete/{id}', [ProductController::class, 'destroy'])->name('delete');
+
 Route::post('/', [ProductController::class, 'store'])->name('store');
 
-Route::delete('/ {id}', [ProductController::class, 'destroy'])->name('delete');
+Route::get('/ {id}', [ProductController::class, 'destroy'])->name('delete');
 
 // Auth::routes();
 

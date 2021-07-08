@@ -10,9 +10,7 @@
                 <h5 class="card-title">id.{{$item->id}} {{$item->title}}</h5>
                 <p class="card-text">{{$item->description}}</p>
                 <a href="#" class="btn btn-primary">Klikcoins: {{$item->klikcoinsProducts}}</a>
-                <button type="submit" class="btn btn-primary">Delete</button>
-                <button type="submit" class="btn btn-primary">Show</button>
-                <button type="submit" class="btn btn-primary">Delete</button>
+                <a href="{{route('delete', $item->id)}}"><button type="delete" class="btn btn-primary">Delete</button></a>
             </div>
         </div>
         @endforeach
