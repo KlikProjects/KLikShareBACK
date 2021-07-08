@@ -37,7 +37,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //dd($request);
-        $products = Product::create([
+        Product::create([
 
             'title' => $request->newtitle,
             'description' => $request->newdescription,
@@ -57,7 +57,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+        return view('productsForms.show', compact('product'));
     }
 
     /**

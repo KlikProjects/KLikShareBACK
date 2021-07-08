@@ -25,11 +25,15 @@ Auth::routes();
 Route::get('/', [ProductController::class, 'index'])->name('home');
 
 Route::get('/create', [ProductController::class, 'create'])->name('create');
+Route::post('/', [ProductController::class, 'store'])->name('store');
 
 Route::get('/delete/{id}', [ProductController::class, 'destroy'])->name('delete');
 
-Route::post('/', [ProductController::class, 'store'])->name('store');
-
 Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
-
 Route::put('/update/{id}', [ProductController::class, 'update'])->name('update');
+
+Route::get('/show/{id}', [ProductController::class, 'show'])->name('show');
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
