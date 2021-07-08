@@ -81,10 +81,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Product::find($id);
-   
-        $product->update($request->all());
-        $product->save();
+        $product = Product::Find($id);
+
+        // $product->update($request->all());
+        // $product->save();
+
+        $product->update([
+
+            'title' => $request->newtitle,
+            'description' => $request->newdescription,
+            'image' => $request->newimage,
+            'category' => $request->newcategory,
+            'klikcoinsProducts' => $request->newklikcoins,
+        ]);
+
 
         return redirect()->route('home');
   
