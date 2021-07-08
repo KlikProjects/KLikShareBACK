@@ -68,7 +68,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        return view('productsForms.edit', compact('product'));
     }
 
     /**
@@ -80,7 +81,23 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::Find($id);
+
+        // $product->update($request->all());
+        // $product->save();
+
+        $product->update([
+
+            'title' => $request->newtitle,
+            'description' => $request->newdescription,
+            'image' => $request->newimage,
+            'category' => $request->newcategory,
+            'klikcoinsProducts' => $request->newklikcoins,
+        ]);
+
+
+        return redirect()->route('home');
+  
     }
 
     /**
@@ -91,6 +108,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::find($id)->delete();
+        return redirect()->route('home');
     }
 }

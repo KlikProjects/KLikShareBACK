@@ -26,7 +26,13 @@ Route::get('/', [ProductController::class, 'index'])->name('home');
 
 Route::get('/create', [ProductController::class, 'create'])->name('create');
 
+Route::get('/delete/{id}', [ProductController::class, 'destroy'])->name('delete');
+
 Route::post('/', [ProductController::class, 'store'])->name('store');
+
+Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
+
+Route::put('/update/{id}', [ProductController::class, 'update'])->name('update');
 
 // Auth::routes();
 
