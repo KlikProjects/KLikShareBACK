@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -36,7 +38,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
+
+        $user = User::find(Auth::id()); 
+        $product = Product::find($request->id);
+
         Product::create([
 
             'title' => $request->newtitle,
@@ -45,6 +50,8 @@ class ProductController extends Controller
             'category' => $request->newcategory,
             'klikcoinsProducts' => $request->newklikcoins,
         ]);
+
+        $user->product()->attach($request->id);
 
         return redirect()->route('home');
     }

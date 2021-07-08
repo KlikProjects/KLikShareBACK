@@ -24,13 +24,13 @@ Auth::routes();
 
 Route::get('/', [ProductController::class, 'index'])->name('home');
 
-Route::get('/create', [ProductController::class, 'create'])->name('create');
-Route::post('/', [ProductController::class, 'store'])->name('store');
+Route::get('/create', [ProductController::class, 'create'])->name('create')->middleware('auth');
+Route::post('/', [ProductController::class, 'store'])->name('store')->middleware('auth');
 
-Route::get('/delete/{id}', [ProductController::class, 'destroy'])->name('delete');
+Route::get('/delete/{id}', [ProductController::class, 'destroy'])->name('delete')->middleware('auth');
 
-Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
-Route::put('/update/{id}', [ProductController::class, 'update'])->name('update');
+Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit')->middleware('auth');
+Route::put('/update/{id}', [ProductController::class, 'update'])->name('update')->middleware('auth');
 
 Route::get('/show/{id}', [ProductController::class, 'show'])->name('show');
 

@@ -16,4 +16,10 @@ class Product extends Model
         'category',
         'klikcoinsProducts'
     ];
+
+
+    public function user(){
+        return $this->belongsToMany(User::class/* , 'product_user' */);
+    }
 }
+
