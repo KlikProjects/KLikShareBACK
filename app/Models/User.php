@@ -20,6 +20,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'image',
+        'klikcoinsUser',
+        'is_Admin',
     ];
 
     /**
