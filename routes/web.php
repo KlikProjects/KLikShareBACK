@@ -33,11 +33,3 @@ Route::post('/', [ProductController::class, 'store'])->name('store');
 Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
 
 Route::put('/update/{id}', [ProductController::class, 'update'])->name('update');
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
