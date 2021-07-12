@@ -15,9 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //$products = Product::all();
-        //return view('home', compact('products'));
-        return response()->json(Product::all()->get(), 200);
+        $products = Product::all();
+        return response()->json($products, 200);
 
     }
 
