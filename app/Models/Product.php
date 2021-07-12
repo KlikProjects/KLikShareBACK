@@ -19,7 +19,7 @@ class Product extends Model
 
 
     public function user(){
-        return $this->belongsToMany(User::class/* , 'product_user' */);
+        return $this->belongsToOne(User::class/* , 'product_user' */);
     }
 }
 
