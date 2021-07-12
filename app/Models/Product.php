@@ -14,7 +14,8 @@ class Product extends Model
         'description',
         'image',
         'category',
-        'klikcoinsProducts'
+        'klikcoinsProducts',
+        'user_id'
     ];
 
 
