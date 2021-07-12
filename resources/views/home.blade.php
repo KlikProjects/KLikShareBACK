@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+<a href="{{route('create')}}"><button type="text" class="btn btn-danger">Create</button></a>
     <div class="row justify-content-center">
         @foreach ($products as $item)  
         <div class="card" style="width: 18rem;">
