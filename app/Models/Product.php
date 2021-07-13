@@ -15,12 +15,11 @@ class Product extends Model
         'image',
         'category',
         'klikcoinsProducts',
-        'user_id'
     ];
 
 
     public function user(){
-        return $this->belongsToOne(User::class/* , 'product_user' */);
+        return $this->belongsTo(User::class);
     }
 }
 
