@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,8 @@ Route::put('/update/{id}', [ProductController::class, 'update'])->name('update')
 
 Route::get('/show/{id}', [ProductController::class, 'show'])->name('show');
 
+Route::post('/product-requested/{id}', [ProductController::class, 'request'])->name('productRequested');
+
 // Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');

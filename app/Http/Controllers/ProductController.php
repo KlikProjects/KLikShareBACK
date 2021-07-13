@@ -116,4 +116,12 @@ class ProductController extends Controller
         Product::find($id)->delete();
         return redirect()->route('home');
     }
+
+    public function request($id)
+    {
+        $user = Auth::user();
+        $product = Product::find($id);
+
+        $product->userRequest()->attach($user);
+    }
 }
