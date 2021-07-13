@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('image');
             $table->string('category');
             $table->integer('klikcoinsProducts');
-            $table->unsignedBigInteger('user_id');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
