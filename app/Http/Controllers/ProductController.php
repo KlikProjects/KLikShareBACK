@@ -39,8 +39,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-        $user = User::find(Auth::id()); 
-        $product = Product::find($request->id);
+        $user = Auth::user();
 
         Product::create([
 
@@ -49,9 +48,8 @@ class ProductController extends Controller
             'image' => $request->newimage,
             'category' => $request->newcategory,
             'klikcoinsProducts' => $request->newklikcoins,
+            'user_id'=>$user->id,
         ]);
-
-        $user->product()->attach($request->id);
 
         return redirect()->route('home');
     }
