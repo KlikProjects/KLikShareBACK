@@ -35,7 +35,7 @@ Route::put('/update/{id}', [ProductController::class, 'update'])->name('update')
 
 Route::get('/show/{id}', [ProductController::class, 'show'])->name('show');
 
-Route::post('/product-requested/{id}', [ProductController::class, 'request'])->name('productRequested');
+Route::get('/product-requested/{id}', [ProductController::class, 'request'])->name('productRequested');
 
 // Auth::routes();
 

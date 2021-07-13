@@ -124,4 +124,6 @@ class ProductController extends Controller
 
         $product->userRequest()->attach($user);
     }
+
+    // public function receiveProduct()
 }
