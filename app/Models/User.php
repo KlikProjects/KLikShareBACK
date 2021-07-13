@@ -23,6 +23,7 @@ class User extends Authenticatable
         'image',
         'klikcoinsUser',
         'is_Admin',
+        'user_id'
     ];
 
     /**

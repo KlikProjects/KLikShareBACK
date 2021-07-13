@@ -16,7 +16,6 @@ class Product extends Model
         'category',
         'klikcoinsProducts',
         'user_id',
-        'received_id'
     ];
 
 
@@ -28,6 +27,6 @@ class Product extends Model
         return $this->belongsToMany(User::class);
     }
 
-    
+
 }
 
