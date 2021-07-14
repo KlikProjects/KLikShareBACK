@@ -38,6 +38,9 @@ Route::get('/show/{id}', [ProductController::class, 'show'])->name('show');
 Route::get('/product-requested/{id}', [ProductController::class, 'request'])->name('productRequested');
 
 Route::get('/usersRequest/{id}', [ProductController::class, 'usersRequest'])->name('usersRequest');
+Route::get('/giveToUser/{productID}/{userID}', [ProductController::class, 'giveToUser'])->name('giveToUser');
+
+
 
 // Auth::routes();
 
