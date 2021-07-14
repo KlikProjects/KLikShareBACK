@@ -16,6 +16,7 @@ class Product extends Model
         'category',
         'klikcoinsProducts',
         'user_id',
+        'receiver_id'
     ];
 
 
@@ -26,6 +27,8 @@ class Product extends Model
     public function userRequest(){
         return $this->belongsToMany(User::class);
     }
+
+    
 
 
 }
