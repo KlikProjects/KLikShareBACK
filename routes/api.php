@@ -32,4 +32,6 @@ Route::get('/products/{id}/request', [ProductController::class, 'request']);
 Route::get('/users/{id}',[UserController::class,'userProfile']);
 Route::get('/users',[UserController::class,'index']);
 
+Route::get('/usersRequest/{id}', [ProductController::class, 'usersRequest'])->name('usersRequest');
+
 

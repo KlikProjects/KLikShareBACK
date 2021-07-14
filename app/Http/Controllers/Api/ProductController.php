@@ -63,12 +63,20 @@ class ProductController extends Controller
     {
         Product::find($id)->delete();
     }
-    
+
     public function request($id)
     {
         $user = Auth::user();
         $product = Product::find($id);
 
         $product->userRequest()->attach($user);
+    }
+
+    public function usersRequest($id){
+
+        $product = Product::find($id);
+        $usersRequest = $product->userRequest;
+
+        return response()->json($product, 200);
     }
 }
