@@ -125,5 +125,22 @@ class ProductController extends Controller
         $product->userRequest()->attach($user);
     }
 
+    public function usersRequest($id){
+        
+        $product = Product::find($id);
+        $usersRequest = $product->userRequest;  
+
+        return view('productsForms.usersRequest', compact('usersRequest','product'));
+    }
+
+    public function giveToUser($productID, $userID){
+
+        $product = Product::find($productID);
+        $product->update([
+            'receiver_id'=>$userID
+        ]);
+
+    }
+
     // public function receiveProduct()
 }
