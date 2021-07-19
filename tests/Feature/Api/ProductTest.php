@@ -60,4 +60,35 @@ class ProductTest extends TestCase
                  ->assertJsonCount(1);
     }
 
+    public function test_CheckUpdateProductCheckInJsonFile()
+    {
+        $response = $this->post('/api/products', [
+            'title' => 'Boots',
+            'description' => 'Beautifull Boots',
+            'image' => 'imageOfBoots',
+            'category' => 'clothing',
+            'klikcoinsProducts' => 100,
+        ]);
+        $data = ['klikcoinsProducts'=>"100"];
+        $response = $this->get('/api/products');
+        $response->assertStatus(200)
+                 ->assertJsonCount(1)
+                 ->assertJsonFragment($data);
+
+
+        $response = $this->put('/api/products/1', [
+            'title' => 'Boots',
+            'description' => 'Beautifull Boots',
+            'image' => 'imageOfBoots',
+            'category' => 'clothing',
+            'klikcoinsProducts' => 200,
+        ]);
+
+        $data = ['klikcoinsProducts'=>"200"];
+        $response = $this->get('/api/products');
+        $response->assertStatus(200)
+                 ->assertJsonCount(1)
+                 ->assertJsonFragment($data);
+    }
+
 }
