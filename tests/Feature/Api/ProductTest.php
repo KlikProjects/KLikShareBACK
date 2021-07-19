@@ -14,7 +14,7 @@ class ProductTest extends TestCase
      *
      * @return void
      */
-/*     public function test_example()
+    /*     public function test_example()
     {
         $response = $this->get('/');
 
@@ -30,7 +30,7 @@ class ProductTest extends TestCase
         $response = $this->get('/api/products');
 
         $response->assertStatus(200)
-                 ->assertJsonCount(2);
+            ->assertJsonCount(2);
     }
 
     public function test_CheckIfDeleteProductCheckInJsonFile()
@@ -42,7 +42,7 @@ class ProductTest extends TestCase
 
         $response = $this->get('/api/products');
         $response->assertStatus(200)
-                 ->assertJsonCount(0);
+            ->assertJsonCount(0);
     }
 
     public function test_CheckCreateProductCheckInJsonFile()
@@ -57,7 +57,7 @@ class ProductTest extends TestCase
 
         $response = $this->get('/api/products');
         $response->assertStatus(200)
-                 ->assertJsonCount(1);
+            ->assertJsonCount(1);
     }
 
     public function test_CheckUpdateProductCheckInJsonFile()
@@ -69,11 +69,11 @@ class ProductTest extends TestCase
             'category' => 'clothing',
             'klikcoinsProducts' => 100,
         ]);
-        $data = ['klikcoinsProducts'=>"100"];
+        $data = ['klikcoinsProducts' => "100"];
         $response = $this->get('/api/products');
         $response->assertStatus(200)
-                 ->assertJsonCount(1)
-                 ->assertJsonFragment($data);
+            ->assertJsonCount(1)
+            ->assertJsonFragment($data);
 
 
         $response = $this->put('/api/products/1', [
@@ -84,11 +84,10 @@ class ProductTest extends TestCase
             'klikcoinsProducts' => 200,
         ]);
 
-        $data = ['klikcoinsProducts'=>"200"];
+        $data = ['klikcoinsProducts' => "200"];
         $response = $this->get('/api/products');
         $response->assertStatus(200)
-                 ->assertJsonCount(1)
-                 ->assertJsonFragment($data);
+            ->assertJsonCount(1)
+            ->assertJsonFragment($data);
     }
-
 }
