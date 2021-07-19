@@ -126,21 +126,26 @@ class ProductController extends Controller
     }
 
     public function usersRequest($id){
-        
+
         $product = Product::find($id);
-        $usersRequest = $product->userRequest;  
+        $usersRequest = $product->userRequest;
 
         return view('productsForms.usersRequest', compact('usersRequest','product'));
     }
 
     public function giveToUser($productID, $userID){
-
+        $user=Auth::user();
         $product = Product::find($productID);
         $product->update([
             'receiver_id'=>$userID
         ]);
-
+        $this->klikcoinToUser($user, $product);
     }
 
-    // public function receiveProduct()
+    public function klikcoinTouser($user, $product ){
+        $user->update([
+            'klikcoinsUsers'=>$user->klikcoinsUsers+$product->klikcoinsProducts
+        ]);
+
+    }
 }
