@@ -45,4 +45,19 @@ class ProductTest extends TestCase
                  ->assertJsonCount(0);
     }
 
+    public function test_CheckCreateProductCheckInJsonFile()
+    {
+        $response = $this->post('/api/products', [
+            'title' => 'Boots',
+            'description' => 'Beautifull Boots',
+            'image' => 'imageOfBoots',
+            'category' => 'clothing',
+            'klikcoinsProducts' => 100,
+        ]);
+
+        $response = $this->get('/api/products');
+        $response->assertStatus(200)
+                 ->assertJsonCount(1);
+    }
+
 }
