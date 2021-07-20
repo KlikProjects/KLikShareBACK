@@ -66,13 +66,20 @@ class ProductController extends Controller
 
     public function request($id)
     {
+
+
         $user = Auth::user();
         $product = Product::find($id);
 
-        $product->userRequest()->attach($user);
+        $alreadyInscribed = Product::checkIfAlreadySolicited($user, $product);
+
+        if (!$alreadyInscribed) {
+            $product->userRequest()->attach($user);
+        }
     }
 
-    public function usersRequest($id){
+    public function usersRequest($id)
+    {
 
         $product = Product::find($id);
         $usersRequest = $product->userRequest;
