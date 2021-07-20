@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [RegisterController::class, 'login']);
+Route::get('/logout', [RegisterController::class, 'logout']);
+Route::get('/user', UserController::class);
+
 
 // Route::middleware('auth:api')->group( function () {
 //     Route::resource('products', ProductController::class);
@@ -33,8 +36,6 @@ Route::delete('/products/{id}',[ProductController::class,'destroy']);
 Route::get('/products/{id}/request', [ProductController::class, 'request']);
 
 
-Route::get('/users/{id}',[UserController::class,'userProfile']);
-Route::get('/users',[UserController::class,'index']);
 
 Route::get('/usersRequest/{id}', [ProductController::class, 'usersRequest'])->name('usersRequest');
 
