@@ -139,8 +139,17 @@ class ProductController extends Controller
         $product->update([
             'receiver_id'=>$userID
         ]);
+        $id=Auth::id();
+        $user=User::find($id);
+        
+        $user->klikcoinsUsers += $product->klikcoinsProducts;
+        $user->update([
+            'klikcoinsUsers'=> $user->klikcoinsUsers
+            
+        ]);
+
 
     }
 
-    // public function receiveProduct()
+    
 }

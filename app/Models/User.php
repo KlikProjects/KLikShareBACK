@@ -52,4 +52,5 @@ class User extends Authenticatable
     public function productRequested(){
         return $this->belongsToMany(Product::class);
     }
+    
 }
