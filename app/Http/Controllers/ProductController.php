@@ -139,8 +139,25 @@ class ProductController extends Controller
         $product->update([
             'receiver_id'=>$userID
         ]);
-
     }
 
-    // public function receiveProduct()
+    public function productsReceived()
+    {
+        $user = User::find(Auth::id());
+      
+        $products = Product::all();
+        $productReceivedId = null;
+        
+        foreach ($products as $product) {
+            if($product->receiver_id === $user->id){
+                $productReceivedId = $product->id;
+            } 
+        }
+
+        $productReceived = Product::find($productReceivedId);
+   
+        return view('productsForms.productsReceived', ["productReceived" => $productReceived]);
+    }
+
+  
 }
