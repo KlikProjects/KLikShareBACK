@@ -28,13 +28,5 @@ class Product extends Model
         return $this->belongsToMany(User::class);
     }
 
-    public function getReceiver(){
-        return $this->fillable['receiver_id'];
-    }
-
-    
-    
-
-
 }
 

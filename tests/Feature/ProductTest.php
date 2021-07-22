@@ -26,7 +26,11 @@ class ProductTest extends TestCase
     // public function tests_if_user_can_see_their_received_products()
     // {
     //     $user = User::factory(1)->create();
-    //     $product = Product::factory(1)->create();
+    //     $product = Product::factory(2)->create();
+
+    //     $response = $this->get('productsReceived');
+
+    //     $response->assertJsonCount(2);
 
     // }
 }
