@@ -66,8 +66,6 @@ class ProductController extends Controller
 
     public function request($id)
     {
-
-
         $user = Auth::user();
         $product = Product::find($id);
 
