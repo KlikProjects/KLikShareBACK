@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('image');
-            $table->string('category');
+            $table->string('category')->nullable();
             $table->integer('klikcoinsProducts');
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->bigInteger('receiver_id')->nullable();
