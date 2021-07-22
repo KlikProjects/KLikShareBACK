@@ -9,7 +9,7 @@ use App\Models\User;
 use Facade\FlareClient\Api;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-
+use Illuminate\Support\Facades\Auth;
 
 use function PHPUnit\Framework\assertEquals;
 
@@ -30,4 +30,23 @@ class UserTest extends TestCase
         $response->assertJsonFragment($data);
 
     }
+
+    public function test_sum_klikcoins()
+    {
+        $product1 = Product::factory(1)->create(['klikcoinsProducts'=>30]);
+        $product2 = Product::factory(1)->create(['klikcoinsProducts'=>50]);
+        
+        $user = User::factory(1)->create(['klikcoinsUsers'=>0]);
+
+        $response = $this->get('api/giveToUser/1/1');
+        $response = $this->get('api/users');
+        
+
+        $data = ['klikcoinsUsers' => 30];
+        $response->assertJsonFragment($data);
+    }
 }
+
+
+
+    
