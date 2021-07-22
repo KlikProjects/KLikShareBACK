@@ -90,4 +90,5 @@ class ProductTest extends TestCase
             ->assertJsonCount(1)
             ->assertJsonFragment($data);
     }
+
 }
