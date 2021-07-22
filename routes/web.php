@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ChatController;
 
 
 /*
@@ -39,6 +41,8 @@ Route::get('/product-requested/{id}', [ProductController::class, 'request'])->na
 
 Route::get('/usersRequest/{id}', [ProductController::class, 'usersRequest'])->name('usersRequest');
 Route::get('/giveToUser/{productID}/{userID}', [ProductController::class, 'giveToUser'])->name('giveToUser');
+
+Route::get('/chat', [ChatController::class, 'chat']);
 
 
 
