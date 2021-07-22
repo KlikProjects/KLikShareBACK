@@ -3,9 +3,11 @@
 namespace Tests\Feature\Api;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Illuminate\Support\Facades\Auth;
 
 class ProductTest extends TestCase
 {
@@ -90,4 +92,21 @@ class ProductTest extends TestCase
             ->assertJsonCount(1)
             ->assertJsonFragment($data);
     }
-}
+
+
+    public function testIfUserCanSeeReceivedProducts()
+    {
+        $user = User::factory(1)->create();
+        
+        $productReceived = Product::factory(2)->create([
+            'receiver_id'=>1
+        ]);
+        $productNoReceived = Product::factory(1)->create();
+
+        $response = $this->get(route('apiproductsReceived', 1));
+
+        $response->assertJsonCount(2);
+    }
+
+}    
+    

@@ -155,10 +155,10 @@ class ProductController extends Controller
 
         $productsReceived = $products->filter(function ($value, $key) {
             $user = User::find(Auth::id());
-            if($value->receiver_id === $user->id){
-               return $value->id;
+            if ($value->receiver_id === $user->id) {
+                return $value->id;
             }
-            });
+        });
 
         $productsReceived->all();       
    

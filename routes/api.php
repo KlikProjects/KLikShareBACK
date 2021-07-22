@@ -35,3 +35,7 @@ Route::get('/users',[UserController::class,'index']);
 Route::get('/usersRequest/{id}', [ProductController::class, 'usersRequest'])->name('usersRequest');
 
 
+Route::get('/productsReceived/{id}', [ProductController::class, 'productsReceived'])->name('apiproductsReceived');
+
+
+
