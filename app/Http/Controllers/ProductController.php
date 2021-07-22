@@ -48,7 +48,7 @@ class ProductController extends Controller
             'image' => $request->newimage,
             'category' => $request->newcategory,
             'klikcoinsProducts' => $request->newklikcoins,
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
         ]);
 
         return redirect()->route('home');
@@ -122,22 +122,30 @@ class ProductController extends Controller
         $user = Auth::user();
         $product = Product::find($id);
 
-        $product->userRequest()->attach($user);
+        $alreadyInscribed = Product::checkIfAlreadySolicited($user, $product);
+
+        if (!$alreadyInscribed) {
+            $product->userRequest()->attach($user);
+        }
+
+        return redirect()->route('home');
     }
 
-    public function usersRequest($id){
-        
+    public function usersRequest($id)
+    {
+
         $product = Product::find($id);
-        $usersRequest = $product->userRequest;  
+        $usersRequest = $product->userRequest;
 
-        return view('productsForms.usersRequest', compact('usersRequest','product'));
+        return view('productsForms.usersRequest', compact('usersRequest', 'product'));
     }
 
-    public function giveToUser($productID, $userID){
+    public function giveToUser($productID, $userID)
+    {
 
         $product = Product::find($productID);
         $product->update([
-            'receiver_id'=>$userID
+            'receiver_id' => $userID
         ]);
         $this->sumKlikcoins($product);
     }

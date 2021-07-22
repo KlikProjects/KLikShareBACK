@@ -28,7 +28,16 @@ class Product extends Model
         return $this->belongsToMany(User::class);
     }
 
-    
+    static function checkIfAlreadySolicited($user, $product) {
+
+        $solicited = false;
+        foreach ($user->productRequested as $item) {
+            if ($product->id === $item->id) {
+                $solicited = true;
+            }
+        }
+        return($solicited);
+    }
 
 
 }
