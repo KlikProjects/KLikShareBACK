@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends BaseController
 {
+
 
     public function register(Request $request)
     {
@@ -50,6 +51,6 @@ class RegisterController extends BaseController
     public function logout(){
        Auth::logout();
        $user = Auth::user();
-       return $this->sendResponse($user, 'User login successfully.');
+       return $this->sendResponse($user, 'User loged out successfully.');
     }
 }

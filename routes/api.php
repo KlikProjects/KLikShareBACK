@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [RegisterController::class, 'login']);
-Route::get('/logout', [RegisterController::class, 'logout']);
+Route::post('/logout', [RegisterController::class, 'logout']);
 Route::get('/user', UserController::class);
 
 
@@ -30,10 +30,10 @@ Route::get('/user', UserController::class);
 
 Route::get('/products',[ProductController::class,'index']);
 Route::get('/products/{id}',[ProductController::class,'show']);
-Route::post('/products', [ProductController::class, 'store']);
-Route::put('/products/{id}',[ProductController::class,'update']);
-Route::delete('/products/{id}',[ProductController::class,'destroy']);
-Route::get('/products/{id}/request', [ProductController::class, 'request']);
+Route::post('/products', [ProductController::class, 'store'])->middleware(['auth:api']);
+Route::put('/products/{id}',[ProductController::class,'update'])->middleware(['auth:api']);
+Route::delete('/products/{id}',[ProductController::class,'destroy'])->middleware(['auth:api']);
+Route::get('/products/{id}/request', [ProductController::class, 'request'])->middleware(['auth:api']);
 
 
 
