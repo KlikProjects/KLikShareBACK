@@ -93,7 +93,7 @@ class ProductTest extends TestCase
             ->assertJsonFragment($data);
     }
 
-    public function test_CheckUpdateProductCheckInJsonFile1111111()
+    public function test_UserCanSoliciteOnlyoneMoreTimeAProduct()
     {
         $product = Product::factory(1)->create();
         $user = User::factory(1)->create();
@@ -109,7 +109,7 @@ class ProductTest extends TestCase
             ->assertJsonCount(1);
     }
 
-    public function test_CheckUpdateProductCheckInJsonFile2222222()
+    public function testIfUserCanSeeReceivedProducts()
     {
         $user = User::factory(1)->create();
 
