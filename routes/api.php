@@ -21,12 +21,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/products',[ProductController::class,'index']);
-Route::get('/products/{id}',[ProductController::class,'show']);
-Route::post('/products', [ProductController::class, 'store']);
-Route::put('/products/{id}',[ProductController::class,'update']);
-Route::delete('/products/{id}',[ProductController::class,'destroy']);
-Route::get('/products/{id}/request', [ProductController::class, 'request']);
+Route::get('/products',[ProductController::class,'index'])->name('apihome');
+Route::get('/products/{id}',[ProductController::class,'show'])->name('apishow');
+Route::post('/products', [ProductController::class, 'store'])->name('apistore');
+Route::put('/products/{id}',[ProductController::class,'update'])->name('apiupdate');
+Route::delete('/products/{id}',[ProductController::class,'destroy'])->name('apidestroy');
+Route::get('/products/{id}/request', [ProductController::class, 'request'])->name('apirequest');
 
 
 Route::get('/users/{id}',[UserController::class,'userProfile']);
