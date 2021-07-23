@@ -66,8 +66,6 @@ class ProductController extends Controller
 
     public function request($id)
     {
-
-
         $user = Auth::user();
         $product = Product::find($id);
 
@@ -80,10 +78,16 @@ class ProductController extends Controller
 
     public function usersRequest($id)
     {
-
         $product = Product::find($id);
         $usersRequest = $product->userRequest;
 
         return response()->json($product, 200);
+    }
+
+    public function productsReceived($id)
+    {
+        $productsReceived = Product::where('receiver_id', $id)->get();
+
+        return response()->json($productsReceived, 200);
     }
 }

@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Illuminate\Support\Facades\Auth;
 
 class ProductTest extends TestCase
 {
@@ -92,7 +93,7 @@ class ProductTest extends TestCase
             ->assertJsonFragment($data);
     }
 
-    public function test_CheckIfAlreadySolicitedAndSolicitJustOneTime()
+    public function test_CheckUpdateProductCheckInJsonFile1111111()
     {
         $product = Product::factory(1)->create();
         $user = User::factory(1)->create();
@@ -107,4 +108,20 @@ class ProductTest extends TestCase
         $response->assertStatus(200)
             ->assertJsonCount(1);
     }
+
+    public function test_CheckUpdateProductCheckInJsonFile2222222()
+    {
+        $user = User::factory(1)->create();
+
+        $productReceived = Product::factory(2)->create([
+            'receiver_id'=>1
+        ]);
+        $productNoReceived = Product::factory(1)->create();
+
+        $response = $this->get(route('apiproductsReceived', 1));
+
+        $response->assertJsonCount(2);
+    }
+
 }
+
