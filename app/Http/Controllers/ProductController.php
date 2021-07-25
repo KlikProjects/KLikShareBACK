@@ -113,7 +113,14 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::find($id)->delete();
+        $user = Auth::user();
+        $product = Product::find($id);
+
+        $isTheCreator = Product::isTheCreator($user, $product);
+
+        if ($isTheCreator) {
+            Product::find($id)->delete();
+        }
         return redirect()->route('home');
     }
 
@@ -160,10 +167,10 @@ class ProductController extends Controller
             }
         });
 
-        $productsReceived->all();       
-   
+        $productsReceived->all();
+
         return view('productsForms.productsReceived', ["productsReceived" => $productsReceived]);
     }
 
-  
+
 }

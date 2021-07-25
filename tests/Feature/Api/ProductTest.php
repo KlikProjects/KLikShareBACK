@@ -39,7 +39,7 @@ class ProductTest extends TestCase
     {
         $product = Product::factory(1)->create();
 
-        $response = $this->delete(route('apidestroy',1));
+        $response = $this->delete(route('apidestroy', 1));
         $response->assertStatus(200);
 
         $response = $this->get(route('apihome'));
@@ -98,12 +98,12 @@ class ProductTest extends TestCase
         $product = Product::factory(1)->create();
         $user = User::factory(1)->create();
 
-        $response = $this->get(route('apirequest',1));
+        $response = $this->get(route('apirequest', 1));
         $response = $this->get(route('apihome'));
         $response->assertStatus(200)
             ->assertJsonCount(1);
 
-        $response = $this->get(route('apirequest',1));
+        $response = $this->get(route('apirequest', 1));
         $response = $this->get(route('apihome'));
         $response->assertStatus(200)
             ->assertJsonCount(1);
@@ -114,7 +114,7 @@ class ProductTest extends TestCase
         $user = User::factory(1)->create();
 
         $productReceived = Product::factory(2)->create([
-            'receiver_id'=>1
+            'receiver_id' => 1
         ]);
         $productNoReceived = Product::factory(1)->create();
 
@@ -123,5 +123,32 @@ class ProductTest extends TestCase
         $response->assertJsonCount(2);
     }
 
-}
 
+    public function test_OnlyTheCreatedProductCanDelete()
+    {
+        $product = Product::factory(1)->create(['user_id' => 2]);
+        $user1 = User::factory(1)->create();
+        $user2 = User::factory(1)->create();
+
+        $this-> actingAs($user1);
+        $response = $this->delete(route('apidestroy', 1));
+
+        $response = $this->get(route('apihome'));
+        $response->assertStatus(200)
+            ->assertJsonCount(1);
+    }
+    /* public function test_OnlyTheCreatedProductCanUpdate()
+    {
+        $product = Product::factory(1)->create(['user_id' => 2]);
+        $user1 = User::factory(1)->create();
+        $user2 = User::factory(1)->create();
+
+        $this-> actingAs($user1);
+        $response = $this->delete(route('apidestroy', 1));
+         $response->assertStatus(200);
+
+        $response = $this->get(route('apihome'));
+        $response->assertStatus(200)
+            ->assertJsonCount(1);
+    } */
+}

@@ -61,7 +61,14 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        Product::find($id)->delete();
+        $user = Auth::user();
+        $product = Product::find($id);
+
+        $isTheCreator = Product::isTheCreator($user, $product);
+
+        if ($isTheCreator) {
+            Product::find($id)->delete();
+        }
     }
 
     public function request($id)

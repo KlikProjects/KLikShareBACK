@@ -20,15 +20,18 @@ class Product extends Model
     ];
 
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function userRequest(){
+    public function userRequest()
+    {
         return $this->belongsToMany(User::class);
     }
 
-    static function checkIfAlreadySolicited($user, $product) {
+    static function checkIfAlreadySolicited($user, $product)
+    {
 
         $solicited = false;
         foreach ($user->productRequested as $item) {
@@ -36,9 +39,17 @@ class Product extends Model
                 $solicited = true;
             }
         }
-        return($solicited);
+        return ($solicited);
     }
 
+    static function isTheCreator($user, $product)
+    {
 
+        $isTheCreator = false;
+        if ($product->user_id === $user->id) {
+            $isTheCreator = true;
+        }
+
+        return ($isTheCreator);
+    }
 }
-
