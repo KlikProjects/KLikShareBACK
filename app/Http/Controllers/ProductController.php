@@ -74,8 +74,15 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
+        $user = Auth::user();
         $product = Product::find($id);
-        return view('productsForms.edit', compact('product'));
+
+        $isTheCreator = Product::isTheCreator($user, $product);
+
+        if ($isTheCreator) {
+            return view('productsForms.edit', compact('product'));
+        }
+        return redirect()->route('home');
     }
 
     /**
