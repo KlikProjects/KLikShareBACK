@@ -30,12 +30,12 @@ class Product extends Model
         return $this->belongsToMany(User::class);
     }
 
-    static function checkIfAlreadySolicited($user, $product)
+    public function checkIfAlreadySolicited($user)
     {
 
         $solicited = false;
         foreach ($user->productRequested as $item) {
-            if ($product->id === $item->id) {
+            if ($this->id === $item->id) {
                 $solicited = true;
             }
         }

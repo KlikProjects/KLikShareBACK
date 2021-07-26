@@ -136,7 +136,7 @@ class ProductController extends Controller
         $user = Auth::user();
         $product = Product::find($id);
 
-        $alreadyInscribed = Product::checkIfAlreadySolicited($user, $product);
+        $alreadyInscribed = $product->checkIfAlreadySolicited($user);
 
         if (!$alreadyInscribed) {
             $product->userRequest()->attach($user);
