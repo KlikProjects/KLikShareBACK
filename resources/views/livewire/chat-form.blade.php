@@ -25,7 +25,7 @@
         window.livewire.on('mensajeEnviado', function(){
             //mostramos el aviso
             $("#avisoSuccess").fadeIn("slow");
-            //ocultamos el aviso a los 3s
+            //ocultamos el aviso al segundo
             setTimeout(function(){$("#avisoSuccess").fadeOut("slow");}, 1000);
         });
     </script>

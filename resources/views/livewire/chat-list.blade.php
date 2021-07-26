@@ -4,8 +4,7 @@
         <li>{{ $mensaje['usuario'] }} - {{ $mensaje['mensaje'] }} </li>
     @endforeach
 </div>
-<script>
-    // Enable pusher logging - don't include this in production
+{{-- <script>
     Pusher.logToConsole = true;
 
     var pusher = new Pusher('c98d187659761df421ca', {
@@ -24,4 +23,4 @@
             messages: [],
         },
     });
-</script>
+</script> --}}
