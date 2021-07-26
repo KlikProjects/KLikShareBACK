@@ -164,5 +164,21 @@ class ProductController extends Controller
         
     }
 
-    
+    public function productsReceived()
+    {
+        $products = Product::all();
+
+        $productsReceived = $products->filter(function ($value, $key) {
+            $user = User::find(Auth::id());
+            if ($value->receiver_id === $user->id) {
+                return $value->id;
+            }
+        });
+
+        $productsReceived->all();       
+   
+        return view('productsForms.productsReceived', ["productsReceived" => $productsReceived]);
+    }
+
+  
 }

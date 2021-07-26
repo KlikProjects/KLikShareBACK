@@ -3,9 +3,11 @@
 namespace Tests\Feature\Api;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Illuminate\Support\Facades\Auth;
 
 class ProductTest extends TestCase
 {
@@ -27,7 +29,7 @@ class ProductTest extends TestCase
     {
         $product = Product::factory(2)->create();
 
-        $response = $this->get('/api/products');
+        $response = $this->get(route('apihome'));
 
         $response->assertStatus(200)
             ->assertJsonCount(2);
@@ -37,17 +39,17 @@ class ProductTest extends TestCase
     {
         $product = Product::factory(1)->create();
 
-        $response = $this->delete('/api/products/1');
+        $response = $this->delete(route('apidestroy',1));
         $response->assertStatus(200);
 
-        $response = $this->get('/api/products');
+        $response = $this->get(route('apihome'));
         $response->assertStatus(200)
             ->assertJsonCount(0);
     }
 
     public function test_CheckCreateProductCheckInJsonFile()
     {
-        $response = $this->post('/api/products', [
+        $response = $this->post(route('apistore'), [
             'title' => 'Boots',
             'description' => 'Beautifull Boots',
             'image' => 'imageOfBoots',
@@ -55,14 +57,14 @@ class ProductTest extends TestCase
             'klikcoinsProducts' => 100,
         ]);
 
-        $response = $this->get('/api/products');
+        $response = $this->get(route('apihome'));
         $response->assertStatus(200)
             ->assertJsonCount(1);
     }
 
     public function test_CheckUpdateProductCheckInJsonFile()
     {
-        $response = $this->post('/api/products', [
+        $response = $this->post(route('apistore'), [
             'title' => 'Boots',
             'description' => 'Beautifull Boots',
             'image' => 'imageOfBoots',
@@ -70,7 +72,7 @@ class ProductTest extends TestCase
             'klikcoinsProducts' => 100,
         ]);
         $data = ['klikcoinsProducts' => "100"];
-        $response = $this->get('/api/products');
+        $response = $this->get(route('apihome'));
         $response->assertStatus(200)
             ->assertJsonCount(1)
             ->assertJsonFragment($data);
@@ -85,10 +87,41 @@ class ProductTest extends TestCase
         ]);
 
         $data = ['klikcoinsProducts' => "200"];
-        $response = $this->get('/api/products');
+        $response = $this->get(route('apihome'));
         $response->assertStatus(200)
             ->assertJsonCount(1)
             ->assertJsonFragment($data);
     }
 
+    public function test_UserCanSoliciteOnlyoneMoreTimeAProduct()
+    {
+        $product = Product::factory(1)->create();
+        $user = User::factory(1)->create();
+
+        $response = $this->get(route('apirequest',1));
+        $response = $this->get(route('apihome'));
+        $response->assertStatus(200)
+            ->assertJsonCount(1);
+
+        $response = $this->get(route('apirequest',1));
+        $response = $this->get(route('apihome'));
+        $response->assertStatus(200)
+            ->assertJsonCount(1);
+    }
+
+    public function testIfUserCanSeeReceivedProducts()
+    {
+        $user = User::factory(1)->create();
+
+        $productReceived = Product::factory(2)->create([
+            'receiver_id'=>1
+        ]);
+        $productNoReceived = Product::factory(1)->create();
+
+        $response = $this->get(route('apiproductsReceived', 1));
+
+        $response->assertJsonCount(2);
+    }
+
 }
+
