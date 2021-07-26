@@ -42,11 +42,11 @@ class Product extends Model
         return ($solicited);
     }
 
-    static function isTheCreator($user, $product)
+    public function isTheCreator($user)
     {
 
         $isTheCreator = false;
-        if ($product->user_id === $user->id) {
+        if ($this->user_id === $user->id) {
             $isTheCreator = true;
         }
 

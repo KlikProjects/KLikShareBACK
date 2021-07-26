@@ -64,10 +64,10 @@ class ProductController extends Controller
         $user = Auth::user();
         $product = Product::find($id);
 
-        $isTheCreator = Product::isTheCreator($user, $product);
+        $isTheCreator = $product->isTheCreator($user);
 
         if ($isTheCreator) {
-            Product::find($id)->delete();
+            $product->delete();
         }
     }
 
