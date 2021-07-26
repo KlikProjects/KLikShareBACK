@@ -180,4 +180,5 @@ class ProductController extends Controller
         return view('productsForms.productsReceived', ["productsReceived" => $productsReceived]);
     }
 
+  
 }
