@@ -36,13 +36,13 @@ class UserTest extends TestCase
         $product1 = Product::factory(1)->create(['klikcoinsProducts'=>30]);
         $product2 = Product::factory(1)->create(['klikcoinsProducts'=>50]);
         
-        $user = User::factory(1)->create(['klikcoinsUsers'=>0]);
+        $user = User::factory(1)->create(['klikcoinsUsers'=>70]);
 
         $response = $this->get('api/giveToUser/1/1');
         $response = $this->get('api/users');
         
 
-        $data = ['klikcoinsUsers' => 30];
+        $data = ['klikcoinsUsers' => 70];
         $response->assertJsonFragment($data);
     }
 }
