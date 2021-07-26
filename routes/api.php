@@ -27,6 +27,7 @@ Route::post('/products', [ProductController::class, 'store'])->name('apistore');
 Route::put('/products/{id}',[ProductController::class,'update'])->name('apiupdate');
 Route::delete('/products/{id}',[ProductController::class,'destroy'])->name('apidestroy');
 Route::get('/products/{id}/request', [ProductController::class, 'request'])->name('apirequest');
+Route::get('/products/{id}/unrequest', [ProductController::class, 'unrequest'])->name('apiunrequest');
 
 
 Route::get('/users/{id}',[UserController::class,'userProfile']);

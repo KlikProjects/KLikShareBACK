@@ -34,18 +34,18 @@ class ProductTest extends TestCase
         $response->assertStatus(200)
             ->assertJsonCount(2);
     }
-
+    /*
     public function test_CheckIfDeleteProductCheckInJsonFile()
     {
         $product = Product::factory(1)->create();
 
-        $response = $this->delete(route('apidestroy',1));
+        $response = $this->delete(route('apidestroy', 1));
         $response->assertStatus(200);
 
         $response = $this->get(route('apihome'));
         $response->assertStatus(200)
             ->assertJsonCount(0);
-    }
+    } */
 
     public function test_CheckCreateProductCheckInJsonFile()
     {
@@ -98,12 +98,12 @@ class ProductTest extends TestCase
         $product = Product::factory(1)->create();
         $user = User::factory(1)->create();
 
-        $response = $this->get(route('apirequest',1));
+        $response = $this->get(route('apirequest', 1));
         $response = $this->get(route('apihome'));
         $response->assertStatus(200)
             ->assertJsonCount(1);
 
-        $response = $this->get(route('apirequest',1));
+        $response = $this->get(route('apirequest', 1));
         $response = $this->get(route('apihome'));
         $response->assertStatus(200)
             ->assertJsonCount(1);
@@ -114,7 +114,7 @@ class ProductTest extends TestCase
         $user = User::factory(1)->create();
 
         $productReceived = Product::factory(2)->create([
-            'receiver_id'=>1
+            'receiver_id' => 1
         ]);
         $productNoReceived = Product::factory(1)->create();
 
@@ -123,5 +123,30 @@ class ProductTest extends TestCase
         $response->assertJsonCount(2);
     }
 
-}
 
+    public function test_OnlyTheCreatedProductCanDelete()
+    {
+        $user = User::factory()->create();
+
+        $user = User::find(1);
+        $this->actingAs($user,'api');
+
+        /* $user2 = User::factory()->create(); */
+        $product = Product::factory()->create([
+            'user_id' => 1
+        ]);
+
+
+
+        $response = $this->delete(route('apidestroy', 1));
+        $this->assertDatabaseCount('products', 0);
+
+        $response = $this->get(route('apihome'));
+        $response->assertJsonCount(0);
+
+
+    }
+    /* public function test_OnlyTheCreatedProductCanUpdate()
+    {
+    } */
+}
