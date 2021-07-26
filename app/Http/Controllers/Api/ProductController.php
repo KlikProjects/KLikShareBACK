@@ -83,6 +83,14 @@ class ProductController extends Controller
         }
     }
 
+    public function unrequest($id)
+    {
+        $user = Auth::user();
+        $product = Product::find($id);
+
+        $product->userRequest()->detach($user);
+    }
+
     public function usersRequest($id)
     {
         $product = Product::find($id);

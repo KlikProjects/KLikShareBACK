@@ -145,6 +145,16 @@ class ProductController extends Controller
         return redirect()->route('home');
     }
 
+    public function unrequest($id)
+    {
+        $user = Auth::user();
+        $product = Product::find($id);
+
+        $product->userRequest()->detach($user);
+
+        return redirect()->route('home');
+    }
+
     public function usersRequest($id)
     {
 

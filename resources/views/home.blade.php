@@ -8,7 +8,7 @@
 
 
     <div class="row justify-content-center">
-        @foreach ($products as $item)  
+        @foreach ($products as $item)
         <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="{{$item->image}}" alt="Card image cap">
             <div class="card-body">
@@ -20,6 +20,7 @@
                 <a href="{{route('show', $item->id)}}"><button type="submit" class="btn btn-primary">Show</button></a>
                 <a href="{{route('usersRequest', $item->id)}}"><button type="submit" class="btn btn-primary">User Requested</button></a>
                 <a href="{{route('productRequested', $item->id)}}"><button type="submit" class="btn btn-primary">Reservar</button></a>
+                <a href="{{route('productUnRequested', $item->id)}}"><button type="submit" class="btn btn-primary">Dejar de Reservar</button></a>
             </div>
         </div>
         @endforeach
