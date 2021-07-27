@@ -17,9 +17,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        Product::factory(10)->create();
-        Message::factory(20)->create();
-        
 
 
         User::factory()->create([
@@ -48,5 +45,8 @@ class DatabaseSeeder extends Seeder
             'is_Admin' => false
         ]);
 
+
+        Product::factory(10)->create();
+        
     }
 }

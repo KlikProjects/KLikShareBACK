@@ -61,7 +61,14 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        Product::find($id)->delete();
+        $user = Auth::user();
+        $product = Product::find($id);
+
+        $isTheCreator = $product->isTheCreator($user);
+
+        if ($isTheCreator) {
+            $product->delete();
+        }
     }
 
     public function request($id)
@@ -69,11 +76,19 @@ class ProductController extends Controller
         $user = Auth::user();
         $product = Product::find($id);
 
-        $alreadyInscribed = Product::checkIfAlreadySolicited($user, $product);
+        $alreadyInscribed = $product->checkIfAlreadySolicited($user);
 
         if (!$alreadyInscribed) {
             $product->userRequest()->attach($user);
         }
+    }
+
+    public function unrequest($id)
+    {
+        $user = Auth::user();
+        $product = Product::find($id);
+
+        $product->userRequest()->detach($user);
     }
 
     public function usersRequest($id)
