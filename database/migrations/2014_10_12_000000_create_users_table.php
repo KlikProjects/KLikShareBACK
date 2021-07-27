@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('image')->nullable();
-            $table->integer('klikcoinsUsers');
-            $table->boolean('is_Admin')->false;
+            $table->integer('klikcoinsUsers')->nullable();
+            $table->boolean('is_Admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

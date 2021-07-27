@@ -164,9 +164,8 @@ class ProductController extends Controller
         return view('productsForms.usersRequest', compact('usersRequest', 'product'));
     }
 
-    public function giveToUser($productID, $userID)
-    {
-
+    public function giveToUser($productID, $userID){
+        $user=Auth::user();
         $product = Product::find($productID);
         $product->update([
             'receiver_id' => $userID
@@ -202,5 +201,13 @@ class ProductController extends Controller
         $productsReceived->all();
         
         return view('productsForms.productsReceived', ["productsReceived" => $productsReceived]);
+        $this->klikcoinToUser($user, $product);
+    }
+
+    public function klikcoinTouser($user, $product ){
+        $user->update([
+            'klikcoinsUsers'=>$user->klikcoinsUsers+$product->klikcoinsProducts
+        ]);
+
     }
 }
