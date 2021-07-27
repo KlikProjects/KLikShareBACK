@@ -81,7 +81,8 @@ class ProductController extends Controller
         $product = Product::find($id);
         $usersRequest = $product->userRequest;
 
-        return response()->json($product, 200);
+        return response()->json($usersRequest, 200);
+    
     }
 
     public function giveToUser($productID, $userID){
