@@ -11,8 +11,9 @@ class ContactTest extends TestCase
     
     public function test_can_retreive_contacts()
     {
-        $response = $this->get('/chatContacts');
-
+        $response = $this->get(route('ChatContacts'));
+        dd($response);
         $response->assertStatus(200);
+       
     }
 }
