@@ -22,9 +22,10 @@ class MessageFactory extends Factory
     public function definition()
     { 
         do{
-            $from = range(1, 5);
-            $to = range (1, 5);
-        } while($from==$to);
+            $from = rand(1, 5);
+            $to = rand (1, 5);
+        } while($from===$to);
+        
         return [
             'from' =>$from,
             'to' => $to,
