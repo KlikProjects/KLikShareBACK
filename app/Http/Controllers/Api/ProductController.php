@@ -99,27 +99,27 @@ class ProductController extends Controller
         return response()->json($product, 200);
     }
 
-    public function giveToUser($productID, $userID){
+    public function giveToUser($productID, $userID)
+    {
 
         $product = Product::find($productID);
         $product->update([
-            'receiver_id'=>$userID
+            'receiver_id' => $userID
         ]);
         $product->save();
         $this->sumKlikcoins($product);
         return response()->json($product, 200);
-
     }
 
     public function sumKlikcoins($product)
     {
-        
-        $id=Auth::id();
-        $user=User::find($id);
+
+        $id = Auth::id();
+        $user = User::find($id);
 
         $user->klikcoinsUsers += $product->klikcoinsProducts;
         $user->update([
-            'klikcoinsUsers'=> $user->klikcoinsUsers
+            'klikcoinsUsers' => $user->klikcoinsUsers
         ]);
         $user->save();
         return response()->json($user, 200);
@@ -128,7 +128,21 @@ class ProductController extends Controller
     public function productsReceived($id)
     {
         $productsReceived = Product::where('receiver_id', $id)->get();
+/*  */
+        return response()->json($productsReceived, 200);
+    }
+
+    public function productsDonated($id)
+    {
+        $productsReceived = Product::where('user_id', $id)->get();
 
         return response()->json($productsReceived, 200);
+    }
+
+    public function search($request)
+    {
+        $products = Product::where('title', 'LIKE', '%' . $request . '%')->get();
+
+        return response()->json($products, 200);
     }
 }

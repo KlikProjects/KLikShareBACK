@@ -177,15 +177,13 @@ class ProductController extends Controller
     public function sumKlikcoins($product)
     {
 
-        $id=Auth::id();
-        $user=User::find($id);
+        $id = Auth::id();
+        $user = User::find($id);
 
         $user->klikcoinsUsers += $product->klikcoinsProducts;
         $user->update([
-            'klikcoinsUsers'=> $user->klikcoinsUsers
+            'klikcoinsUsers' => $user->klikcoinsUsers
         ]);
-
-
     }
 
     public function productsReceived()
@@ -200,7 +198,14 @@ class ProductController extends Controller
         });
 
         $productsReceived->all();
-        
+
         return view('productsForms.productsReceived', ["productsReceived" => $productsReceived]);
+    }
+
+    public function search($request)
+    {
+        $products = Product::where('title', 'LIKE', '%'.$request.'%')->get();
+
+        return view('home', compact('products'));
     }
 }

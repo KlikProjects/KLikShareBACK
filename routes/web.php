@@ -24,6 +24,7 @@ use App\Models\Product;
 Auth::routes();
 
 Route::get('/', [ProductController::class, 'index'])->name('home');
+Route::get('/search/{search}', [ProductController::class, 'search'])->name('search');
 
 Route::get('/create', [ProductController::class, 'create'])->name('create')->middleware('auth');
 Route::post('/', [ProductController::class, 'store'])->name('store')->middleware('auth');

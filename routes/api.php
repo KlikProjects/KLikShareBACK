@@ -37,10 +37,11 @@ Route::get('/usersRequest/{id}', [ProductController::class, 'usersRequest'])->na
 Route::get('/giveToUser/{productID}/{userID}', [ProductController::class, 'giveToUser'])->name('apiGiveUser');
 
 
-
+Route::get('/search/{search}', [ProductController::class, 'search'])->name('search');
 
 
 Route::get('/productsReceived/{id}', [ProductController::class, 'productsReceived'])->name('apiproductsReceived');
+Route::get('/productsDonated/{id}', [ProductController::class, 'productsDonated'])->name('apiproductsDonated');
 
 
 
