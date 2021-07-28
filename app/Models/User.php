@@ -24,8 +24,8 @@ class User extends Authenticatable
         'password',
         'image',
         'klikcoinsUser',
-        'is_Admin',
-        'user_id'
+        'is_Admin'/* ,
+        'user_id' */
     ];
 
     /**
@@ -54,4 +54,5 @@ class User extends Authenticatable
     public function productRequested(){
         return $this->belongsToMany(Product::class);
     }
+    
 }

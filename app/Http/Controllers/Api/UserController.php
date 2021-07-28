@@ -14,8 +14,8 @@ class UserController extends Controller
          $this->middleware(['auth:api']);
      }
     public function __invoke(Request $request){
-        // dd($request->user());
-        $user= $request->user();
+        // dd($request->user());\
+        $user = $request->user();
         return response()->json([
             'id'=>$user->id,
             'email'=>$user->email,

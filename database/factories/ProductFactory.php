@@ -27,6 +27,7 @@ class ProductFactory extends Factory
             'image' => $this->faker->imageUrl(),
             'category' => $this->faker->colorName(),
             'klikcoinsProducts' => $this->faker->randomNumber($nbdigits=2),
+            'user_id' => null,
         ];
     }
 }

@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->bigInteger('receiver_id')->nullable();
             $table->timestamps();
-
+           
 
         });
     }

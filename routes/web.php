@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +36,12 @@ Route::put('/update/{id}', [ProductController::class, 'update'])->name('update')
 Route::get('/show/{id}', [ProductController::class, 'show'])->name('show');
 
 Route::get('/product-requested/{id}', [ProductController::class, 'request'])->name('productRequested');
+Route::get('/product-unrequested/{id}', [ProductController::class, 'unrequest'])->name('productUnRequested');
 
 Route::get('/usersRequest/{id}', [ProductController::class, 'usersRequest'])->name('usersRequest');
 Route::get('/giveToUser/{productID}/{userID}', [ProductController::class, 'giveToUser'])->name('giveToUser');
+
+Route::get('/productsReceived', [ProductController::class, 'productsReceived'])->name('productsReceived');
 
 
 
