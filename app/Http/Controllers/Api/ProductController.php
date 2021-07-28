@@ -145,4 +145,12 @@ class ProductController extends Controller
 
         return response()->json($products, 200);
     }
+    
+    public function usersConnection($id)
+    {
+        $product = Product::find($id);
+        $usersRequest = $product->userRequest;
+
+        return response()->json($usersRequest, 200);
+    }
 }

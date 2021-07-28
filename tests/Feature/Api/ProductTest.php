@@ -146,7 +146,15 @@ class ProductTest extends TestCase
 
 
     }
-    /* public function test_OnlyTheCreatedProductCanUpdate()
+    public function test_CheckUsersConnection($id)
     {
-    } */
+        $product = Product::find($id);
+        $userRequest = $product->userRequest;
+
+        $response = $this->get(route('apirequest'));
+
+        $response->assertStatus(200)
+            ->assertJsonCount(2);
+    }
+
 }
