@@ -44,6 +44,8 @@ Route::get('/giveToUser/{productID}/{userID}', [ProductController::class, 'giveT
 
 Route::get('/productsReceived', [ProductController::class, 'productsReceived'])->name('productsReceived');
 
+Route::get('/usersConnection/{productID}', [ProductController::class, 'usersConnection'])->name('usersConnection');
+
 
 
 // Auth::routes();

@@ -36,6 +36,8 @@
                                 class="btn btn-primary">Reservar</button></a>
                         <a href="{{ route('productUnRequested', $item->id) }}"><button type="submit"
                                 class="btn btn-primary">Dejar de Reservar</button></a>
+                        <a href="{{ route('usersConnection', $item->id) }}"><button type="submit"
+                                class="btn btn-primary">Chat</button></a>
                     </div>
                 </div>
             @endforeach

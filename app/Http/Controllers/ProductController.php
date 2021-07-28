@@ -208,4 +208,13 @@ class ProductController extends Controller
 
         return view('home', compact('products'));
     }
+    public function usersConnection($product){
+
+        /*$products= product::all();
+        
+        foreach($product as $products){
+            if (Auth::id() === $product->user_id)
+            }
+        return ($products)*/
+    }
 }
