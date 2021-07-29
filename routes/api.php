@@ -39,6 +39,9 @@ Route::get('/products/{id}/request', [ProductController::class, 'request'])->nam
 Route::get('/products/{id}/unrequest', [ProductController::class, 'unrequest'])->name('apiunrequest')->middleware(['auth:api']);
 Route::get('/contacts', [ProductController::class, 'getUserContacts'])->name('apigetUserContacts')->middleware(['auth:api']);
 
+Route::get('/checkIfRequested/{id}', [ProductController::class, 'checkIfRequested'])->name('apicheckIfRequested')->middleware(['auth:api']);
+
+
 
 
 

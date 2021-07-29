@@ -170,5 +170,19 @@ class ProductController extends Controller
 }
 
 
+public function checkIfRequested($id)
+{
+    $user = Auth::user();
+    $product = Product::find($id);
+    $alreadyRequested = $product->checkIfAlreadySolicited($user);
+
+    if ($alreadyRequested) {
+        $requested = true;
+    }else{
+        $requested = false;
+    }
+    return response()->json($requested);
+}
+
 }
 
