@@ -1,4 +1,4 @@
-<p align="center"><img src="./public/img/Readme.MD/screenshootFigma/logofinal.png?raw=true" width="400"></a></p>
+<p align="center"><img src="./public/img/Readme.MD/logofinal.png?raw=true" width="400"></a></p>
 
 
 KLikShare
