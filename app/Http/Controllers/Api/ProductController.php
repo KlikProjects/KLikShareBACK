@@ -85,16 +85,13 @@ class ProductController extends Controller
         $user = Auth::user();
 
         $product = Product::find($id);
+        $alreadyRequested = $product->checkIfAlreadySolicited($user);
 
-
-
-        $alreadyInscribed = $product->checkIfAlreadySolicited($user);
-
-         if (!$alreadyInscribed) {
+         if (!$alreadyRequested) {
             $product->userRequest()->attach($user);
             return response()->json($user, 200);
         }else{
-
+            return response()->json(null,500);
         }
     }
 
@@ -146,6 +143,7 @@ class ProductController extends Controller
 
         return response()->json($productsReceived, 200);
     }
+    
     public function getUserContacts(){
     $user= Auth::user();
     $products = $user->product;

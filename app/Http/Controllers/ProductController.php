@@ -108,13 +108,7 @@ class ProductController extends Controller
                 'category' => $request->newcategory,
                 'klikcoinsProducts' => $request->newklikcoins,
             ]);
-
-
-
         }
-        
-
-
     }
 
     /**
@@ -182,15 +176,13 @@ class ProductController extends Controller
     public function sumKlikcoins($product)
     {
 
-        $id=Auth::id();
-        $user=User::find($id);
+        $id = Auth::id();
+        $user = User::find($id);
 
         $user->klikcoinsUsers += $product->klikcoinsProducts;
         $user->update([
-            'klikcoinsUsers'=> $user->klikcoinsUsers
+            'klikcoinsUsers' => $user->klikcoinsUsers
         ]);
-
-
     }
 
     public function productsReceived()
