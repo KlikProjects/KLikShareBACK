@@ -1,3 +1,17 @@
+installacion
+
+passport :
+composer require laravel/passport
+php artisan migrate
+php artisan passport:install
+php artisan passport:client --personal
+
+Fruitcake :
+composer require fruitcake/laravel-cors
+dentro de la seccion "protected $middleware" del fichero /app/Http/Kernel.php esta linea \Fruitcake\Cors\HandleCors::class,
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
