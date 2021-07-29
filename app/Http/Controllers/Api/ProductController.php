@@ -61,29 +61,88 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        Product::find($id)->delete();
+        $user = Auth::user();
+        $product = Product::find($id);
+
+        $isTheCreator = $product->isTheCreator($user);
+
+        if ($isTheCreator) {
+            $product->delete();
+        }
     }
 
     public function request($id)
     {
-
-
         $user = Auth::user();
         $product = Product::find($id);
 
-        $alreadyInscribed = Product::checkIfAlreadySolicited($user, $product);
+        $alreadyInscribed = $product->checkIfAlreadySolicited($user);
 
         if (!$alreadyInscribed) {
             $product->userRequest()->attach($user);
         }
     }
 
+    public function unrequest($id)
+    {
+        $user = Auth::user();
+        $product = Product::find($id);
+
+        $product->userRequest()->detach($user);
+    }
+
     public function usersRequest($id)
     {
-
         $product = Product::find($id);
         $usersRequest = $product->userRequest;
 
         return response()->json($product, 200);
+    }
+
+    public function giveToUser($productID, $userID)
+    {
+
+        $product = Product::find($productID);
+        $product->update([
+            'receiver_id' => $userID
+        ]);
+        $product->save();
+        $this->sumKlikcoins($product);
+        return response()->json($product, 200);
+    }
+
+    public function sumKlikcoins($product)
+    {
+
+        $id = Auth::id();
+        $user = User::find($id);
+
+        $user->klikcoinsUsers += $product->klikcoinsProducts;
+        $user->update([
+            'klikcoinsUsers' => $user->klikcoinsUsers
+        ]);
+        $user->save();
+        return response()->json($user, 200);
+    }
+
+    public function productsReceived($id)
+    {
+        $productsReceived = Product::where('receiver_id', $id)->get();
+/*  */
+        return response()->json($productsReceived, 200);
+    }
+
+    public function productsDonated($id)
+    {
+        $productsReceived = Product::where('user_id', $id)->get();
+
+        return response()->json($productsReceived, 200);
+    }
+
+    public function search($request)
+    {
+        $products = Product::where('title', 'LIKE', '%' . $request . '%')->get();
+
+        return response()->json($products, 200);
     }
 }

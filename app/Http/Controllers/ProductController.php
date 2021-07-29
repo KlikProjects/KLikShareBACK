@@ -74,8 +74,15 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
+        $user = Auth::user();
         $product = Product::find($id);
-        return view('productsForms.edit', compact('product'));
+
+        $isTheCreator = Product::isTheCreator($user, $product);
+
+        if ($isTheCreator) {
+            return view('productsForms.edit', compact('product'));
+        }
+        return redirect()->route('home');
     }
 
     /**
@@ -113,7 +120,14 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::find($id)->delete();
+        $user = Auth::user();
+        $product = Product::find($id);
+
+        $isTheCreator = $product->isTheCreator($user);
+
+        if ($isTheCreator) {
+            $product->delete();
+        }
         return redirect()->route('home');
     }
 
@@ -122,7 +136,7 @@ class ProductController extends Controller
         $user = Auth::user();
         $product = Product::find($id);
 
-        $alreadyInscribed = Product::checkIfAlreadySolicited($user, $product);
+        $alreadyInscribed = $product->checkIfAlreadySolicited($user);
 
         if (!$alreadyInscribed) {
             $product->userRequest()->attach($user);
@@ -131,7 +145,18 @@ class ProductController extends Controller
         return redirect()->route('home');
     }
 
-    public function usersRequest($id){
+    public function unrequest($id)
+    {
+        $user = Auth::user();
+        $product = Product::find($id);
+
+        $product->userRequest()->detach($user);
+
+        return redirect()->route('home');
+    }
+
+    public function usersRequest($id)
+    {
 
         $product = Product::find($id);
         $usersRequest = $product->userRequest;
@@ -145,13 +170,41 @@ class ProductController extends Controller
         $product->update([
             'receiver_id' => $userID
         ]);
-        $this->klikcoinToUser($user, $product);
+        $this->sumKlikcoins($product);
     }
 
-    public function klikcoinTouser($user, $product ){
-        $user->update([
-            'klikcoinsUsers'=>$user->klikcoinsUsers+$product->klikcoinsProducts
-        ]);
+    public function sumKlikcoins($product)
+    {
 
+        $id = Auth::id();
+        $user = User::find($id);
+
+        $user->klikcoinsUsers += $product->klikcoinsProducts;
+        $user->update([
+            'klikcoinsUsers' => $user->klikcoinsUsers
+        ]);
+    }
+
+    public function productsReceived()
+    {
+        $products = Product::all();
+
+        $productsReceived = $products->filter(function ($value, $key) {
+            $user = User::find(Auth::id());
+            if ($value->receiver_id === $user->id) {
+                return $value->id;
+            }
+        });
+
+        $productsReceived->all();
+
+        return view('productsForms.productsReceived', ["productsReceived" => $productsReceived]);
+    }
+
+    public function search($request)
+    {
+        $products = Product::where('title', 'LIKE', '%'.$request.'%')->get();
+
+        return view('home', compact('products'));
     }
 }
