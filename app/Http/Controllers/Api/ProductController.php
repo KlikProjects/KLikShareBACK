@@ -113,29 +113,26 @@ class ProductController extends Controller
 
     public function giveToUser($productID, $userID)
     {
-
+        $user= Auth::user();
         $product = Product::find($productID);
         $product->update([
             'receiver_id' => $userID
         ]);
         $product->save();
-        $this->sumKlikcoins($product);
+        //  $this->sumKlikcoins($product, $user);
         return response()->json($product, 200);
     }
 
-    public function sumKlikcoins($product)
-    {
+    // public function sumKlikcoins($product, $user)
+    // {
 
-        $id = Auth::id();
-        $user = User::find($id);
-
-        $user->klikcoinsUsers += $product->klikcoinsProducts;
-        $user->update([
-            'klikcoinsUsers' => $user->klikcoinsUsers
-        ]);
-        $user->save();
-        return $this->sendResponse($user->name, 'User register successfully.');
-    }
+    //     $user->klikcoinsUsers += $product->klikcoinsProducts;
+    //     $user->update([
+    //         'klikcoinsUsers' => $user->klikcoinsUsers
+    //     ]);
+    //     $user->save();
+    //     return $this->sendResponse($user->name, 'User register successfully.');
+    // }
 
     public function productsReceived($id)
     {
