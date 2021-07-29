@@ -167,7 +167,7 @@ class ProductController extends Controller
 
     }
     return response()->json($product, 200);
-}
+ }
 
 
 public function checkIfRequested($id)
@@ -182,6 +182,11 @@ public function checkIfRequested($id)
         $requested = false;
     }
     return response()->json($requested);
+}
+public function myProducts(){
+    $user= User::find(Auth::id());
+     $products =$user->products;
+     return response()->json($products, 200);
 }
 
 }

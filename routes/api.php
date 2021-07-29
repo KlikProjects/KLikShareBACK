@@ -41,6 +41,7 @@ Route::get('/contacts', [ProductController::class, 'getUserContacts'])->name('ap
 
 Route::get('/checkIfRequested/{id}', [ProductController::class, 'checkIfRequested'])->name('apicheckIfRequested')->middleware(['auth:api']);
 
+Route::get('/myProducts', [ProductController::class, 'myProducts'])->middleware(['auth:api']);
 
 
 
