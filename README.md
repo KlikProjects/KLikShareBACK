@@ -106,43 +106,7 @@ Para ejecutar los tests hay que descomentar 2 lineas en el "phpunit.xml"
 ***
 
 
-# Klik & Learn
-
-## 🚀 Comenzando
-
-Dónde encontrar el proyecto en producción:
-
-http://klikandlearn.herokuapp.com/
-
-
-## 🛠️ Mockup de este proyecto
-
-Mockup de cómo pensábamos que deberían ser las pantallas y sus funcionalidades:
-
-<p align="center"> 
-<img src="./public/img/Readme.MD/screenshootFigma/figma1.PNG?raw=true" width=30%>
-<img src="./public/img/Readme.MD/screenshootFigma/figma2.PNG?raw=true" width=30%>
-<img src="./public/img/Readme.MD/screenshootFigma/figma3.PNG?raw=true" width=25%>
-</p>
-
-
-## ⚙️ Capturas pantalla formato móvil 
-
-<p align="center"> 
-<img src="./public/img/Readme.MD/screenshootMobil/mobileHome.PNG?raw=true" width=25%>
-<img src="./public/img/Readme.MD/screenshootMobil/mobileMyEvents.PNG?raw=true" width=25%>
-<img src="./public/img/Readme.MD/screenshootMobil/mobileShow.PNG?raw=true" width=25%>
-</p>
-
-
-## ⚙️ Capturas pantalla formato tablet
-
-<p align="center"> 
-<img src="./public/img/Readme.MD/screenshootTablet/tabletHome.PNG?raw=true" width=30%>
-<img src="./public/img/Readme.MD/screenshootTablet/tabletMyEvents.PNG?raw=true" width=30%>
-<img src="./public/img/Readme.MD/screenshootTablet/tabletShow.PNG?raw=true" width=30%>
-</p>
-
+# KlikShare
 
 ## 🛠️ Herramientas usadas en este proyecto
 <ul>
@@ -155,27 +119,21 @@ Mockup de cómo pensábamos que deberían ser las pantallas y sus funcionalidade
   <li>GoogleFonts</li>
   <li>Zoom</li>
   <li>Bootstrap</li>
-  <li>Heroku</li>
   <li>Laravel</li>
   <li>SQL</li>
   <li>PHPMyAdmin</li>
+  <li>Para el front hemos usado Vue.js aqui esta el proyecto https://github.com/KlikProjects/KlikShareFront.git</li>    
 </ul>
 
 
 ## ✒️ Autores 
 <ul>
-  <li>Berta</li>
-  <li>David (Product Owner)</li>
-  <li>Gabriela</li>
-  <li>Joan (Scrum Master)</li>
+  <li>Alexandra</li>
+  <li>Andreu (Product Owner)</li>
+  <li>Armando</li>
+  <li>David (Scrum Master)</li>
   <li>Jose Miguel</li>
+  <li>Solomon</li>
 </ul>
 
-También pueden mirar la lista de todos los [contribuyentes](https://github.com/KlikProjects/KlikandLearn/graphs/contributors) quienes han participado en este proyecto.  
-
-
-
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+También pueden mirar la lista de todos los [contribuyentes](https://github.com/KlikProjects/KLikShare/graphs/contributors) quienes han participado en este proyecto.  
