@@ -46,12 +46,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+
+
         Product::factory()->create([
-            'title' => 'Vestido',
-            'description' => 'Casi nuevo, talla M, de algodón',
-            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThhwYkJ-UaB9lhiR1D3LKzc_4izXh5jI6PLA&usqp=CAU',
-            'klikcoinsProducts' => '40',
-            'user_id' => '2',
+            'title' => 'Sofá',
+            'description' => 'Sofá de dos plazas, comprado hace un año, medidas: 140x70x80cm',
+            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB9aErbX4vxT8UVQPF94YoVrFDKb2zeRZXqQ&usqp=CAU',
+            'klikcoinsProducts' => '200',
+            'user_id' => '3',
         ]);
         Product::factory()->create([
             'title' => 'Peto vaquero',
@@ -68,19 +70,13 @@ class DatabaseSeeder extends Seeder
             'user_id' => '2',
         ]);
         Product::factory()->create([
-            'title' => 'Bañador',
-            'description' => 'Bañador nuevo, talla L',
-            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9BA-Kt6fFmCLwMDicSKuGUzVZ1N_AljJpQQ&usqp=CAU',
-            'klikcoinsProducts' => '30',
-            'user_id' => '2',
+            'title' => 'Caña de pescar',
+            'description' => 'Se regala por falta de uso, no pesco ni zapatos, seminueva, tambien tengo una caja de cebo',
+            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRS5w31bLjoLfDWvesAEnYWy2TDZOwMtr2YA&usqp=CAU',
+            'klikcoinsProducts' => '50',
+            'user_id' => '4',
         ]);
-        Product::factory()->create([
-            'title' => 'Sofá',
-            'description' => 'Sofá de dos plazas, comprado hace un año, medidas: 140x70x80cm',
-            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB9aErbX4vxT8UVQPF94YoVrFDKb2zeRZXqQ&usqp=CAU',
-            'klikcoinsProducts' => '200',
-            'user_id' => '3',
-        ]);
+       
         Product::factory()->create([
             'title' => 'Mesa de centro',
             'description' => 'Mesa de madera, usada pero estable, pesa 40kg',
@@ -103,6 +99,13 @@ class DatabaseSeeder extends Seeder
             'user_id' => '3',
         ]);
         Product::factory()->create([
+            'title' => 'Vestido',
+            'description' => 'Casi nuevo, talla M, de algodón',
+            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThhwYkJ-UaB9lhiR1D3LKzc_4izXh5jI6PLA&usqp=CAU',
+            'klikcoinsProducts' => '40',
+            'user_id' => '2',
+        ]);
+        Product::factory()->create([
             'title' => 'Licuadora',
             'description' => 'Regalo de bodas de hace 40 años, nunca ha sido usada, se regala a pareja de recien casados para que no la usen nunca pero no les falte',
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMdsnTCNaCvVqnOw3Gk41WR7vI0yHDxQoqLA&usqp=CAU',
@@ -117,6 +120,13 @@ class DatabaseSeeder extends Seeder
             'user_id' => '3',
         ]);
         Product::factory()->create([
+            'title' => 'Bañador',
+            'description' => 'Bañador nuevo, talla L',
+            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9BA-Kt6fFmCLwMDicSKuGUzVZ1N_AljJpQQ&usqp=CAU',
+            'klikcoinsProducts' => '30',
+            'user_id' => '2',
+        ]);
+        Product::factory()->create([
             'title' => 'Enciclopedia infantil',
             'description' => 'Para edades hasta los 6 años',
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNABmWRib83f8NKilDl83fPz8hu30ASImSuQ&usqp=CAU',
@@ -124,11 +134,11 @@ class DatabaseSeeder extends Seeder
             'user_id' => '4',
         ]);
         Product::factory()->create([
-            'title' => 'Libro: Noticia de un secuestro',
-            'description' => 'Libro de García Márquez',
-            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_AxRvnE_swgnFAduEr3JLgVfxwlL5PXLC7Q&usqp=CAU',
-            'klikcoinsProducts' => '15',
-            'user_id' => '4',
+            'title' => 'Litera infatil',
+            'description' => 'Se regala litera, 2 años de uso, peso máximo 120kg, medidas: 150x90x180',
+            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl6WH3wHfMb0Xe4Ke4P675POD8v9d9frI3hQ&usqp=CAU',
+            'klikcoinsProducts' => '150',
+            'user_id' => '2',
         ]);
         Product::factory()->create([
             'title' => 'Libro: Cien años de soledad',
@@ -144,11 +154,12 @@ class DatabaseSeeder extends Seeder
             'klikcoinsProducts' => '30',
             'user_id' => '4',
         ]);
+       
         Product::factory()->create([
-            'title' => 'Latas para gatos',
-            'description' => 'Se regalan 6 latitas para gatos adultos',
-            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx7U6kCYZH9fA8joT8h81UpSxmc-5lyXJnSA&usqp=CAU',
-            'klikcoinsProducts' => '25',
+            'title' => 'Libro: Noticia de un secuestro',
+            'description' => 'Libro de García Márquez',
+            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_AxRvnE_swgnFAduEr3JLgVfxwlL5PXLC7Q&usqp=CAU',
+            'klikcoinsProducts' => '15',
             'user_id' => '4',
         ]);
         Product::factory()->create([
@@ -156,13 +167,6 @@ class DatabaseSeeder extends Seeder
             'description' => 'Patines practicamente nuevos, talla 32, de Frozen',
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCWy0Ff2mvrI7br16TOH_yG3WIwOZ_Shv9bw&usqp=CAU',
             'klikcoinsProducts' => '80',
-            'user_id' => '4',
-        ]);
-        Product::factory()->create([
-            'title' => 'Caña de pescar',
-            'description' => 'Se regala por falta de uso, no pesco ni zapatos, seminueva, tambien tengo una caja de cebo',
-            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRS5w31bLjoLfDWvesAEnYWy2TDZOwMtr2YA&usqp=CAU',
-            'klikcoinsProducts' => '50',
             'user_id' => '4',
         ]);
         Product::factory()->create([
@@ -186,13 +190,7 @@ class DatabaseSeeder extends Seeder
             'klikcoinsProducts' => '40',
             'user_id' => '5',
         ]);
-        Product::factory()->create([
-            'title' => 'Litera infatil',
-            'description' => 'Se regala litera, 2 años de uso, peso máximo 120kg, medidas: 150x90x180',
-            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl6WH3wHfMb0Xe4Ke4P675POD8v9d9frI3hQ&usqp=CAU',
-            'klikcoinsProducts' => '150',
-            'user_id' => '2',
-        ]);
+        
         // Product::factory()->create([
         //     'title' => '',
         //     'description' => '',
