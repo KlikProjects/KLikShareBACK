@@ -20,8 +20,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [RegisterController::class, 'login']);
-Route::post('/logout', [RegisterController::class, 'logout'])->middleware(['auth:api']);
-Route::get('/user', UserController::class);
+Route::post('/logout', [RegisterController::class, 'logout']);
+Route::get('/user', [UserController::class, 'getUserData']);
+Route::get('/requestedProducts', [UserController::class, 'getRequestedProducts'])->middleware(['auth:api']);
 
 
 // Route::middleware('auth:api')->group( function () {
@@ -29,13 +30,15 @@ Route::get('/user', UserController::class);
 // });
 
 
-Route::get('/products',[ProductController::class,'index'])->name('apihome');
-Route::get('/products/{id}',[ProductController::class,'show'])->name('apishow');
-Route::post('/products', [ProductController::class, 'store'])->name('apistore')->middleware(['auth:api']);
-Route::put('/products/{id}',[ProductController::class,'update'])->name('apiupdate')->middleware(['auth:api']);
-Route::delete('/products/{id}',[ProductController::class,'destroy'])->name('apidestroy')->middleware(['auth:api']);
+Route::get('/products',[ProductController::class,'index']);
+Route::get('/products/{id}',[ProductController::class,'show']);
+Route::post('/products', [ProductController::class, 'store'])->middleware(['auth:api']);
+Route::put('/products/{id}',[ProductController::class,'update'])->middleware(['auth:api']);
+Route::delete('/products/{id}',[ProductController::class,'destroy'])->middleware(['auth:api']);
 Route::get('/products/{id}/request', [ProductController::class, 'request'])->name('apirequest')->middleware(['auth:api']);
 Route::get('/products/{id}/unrequest', [ProductController::class, 'unrequest'])->name('apiunrequest')->middleware(['auth:api']);
+Route::get('/contacts', [ProductController::class, 'getUserContacts'])->name('apigetUserContacts')->middleware(['auth:api']);
+
 
 
 

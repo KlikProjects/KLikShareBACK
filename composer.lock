@@ -986,18 +986,6 @@
         },
         {
             "name": "laravel/framework",
-<<<<<<< HEAD
-            "version": "v8.51.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/framework.git",
-                "reference": "208d9c0043b4c192a9bb9b15782cc4ec37f28bb0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/208d9c0043b4c192a9bb9b15782cc4ec37f28bb0",
-                "reference": "208d9c0043b4c192a9bb9b15782cc4ec37f28bb0",
-=======
             "version": "v8.50.0",
             "source": {
                 "type": "git",
@@ -1008,7 +996,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/d892dbacbe3859cf9303ccda98ac8d782141d5ae",
                 "reference": "d892dbacbe3859cf9303ccda98ac8d782141d5ae",
->>>>>>> 638e4370e43783c72ff56c5de348529c298a1b6b
                 "shasum": ""
             },
             "require": {
@@ -1163,7 +1150,6 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-<<<<<<< HEAD
             "time": "2021-07-20T14:38:36+00:00"
         },
         {
@@ -1242,9 +1228,6 @@
                 "source": "https://github.com/laravel/passport"
             },
             "time": "2021-04-06T14:30:45+00:00"
-=======
-            "time": "2021-07-13T12:41:53+00:00"
->>>>>>> 638e4370e43783c72ff56c5de348529c298a1b6b
         },
         {
             "name": "laravel/tinker",
@@ -1609,63 +1592,6 @@
                 }
             ],
             "time": "2021-07-17T17:13:23+00:00"
-<<<<<<< HEAD
-        },
-        {
-            "name": "league/event",
-            "version": "2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thephpleague/event.git",
-                "reference": "d2cc124cf9a3fab2bb4ff963307f60361ce4d119"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/event/zipball/d2cc124cf9a3fab2bb4ff963307f60361ce4d119",
-                "reference": "d2cc124cf9a3fab2bb4ff963307f60361ce4d119",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "henrikbjorn/phpspec-code-coverage": "~1.0.1",
-                "phpspec/phpspec": "^2.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "League\\Event\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Frank de Jonge",
-                    "email": "info@frenky.net"
-                }
-            ],
-            "description": "Event package",
-            "keywords": [
-                "emitter",
-                "event",
-                "listener"
-            ],
-            "support": {
-                "issues": "https://github.com/thephpleague/event/issues",
-                "source": "https://github.com/thephpleague/event/tree/master"
-            },
-            "time": "2018-11-26T11:52:41+00:00"
-=======
->>>>>>> 638e4370e43783c72ff56c5de348529c298a1b6b
         },
         {
             "name": "league/flysystem",
@@ -6029,18 +5955,6 @@
         },
         {
             "name": "facade/ignition",
-<<<<<<< HEAD
-            "version": "2.11.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/facade/ignition.git",
-                "reference": "7c4e7a7da184cd00c7ce6eacc590200bb9672de7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/7c4e7a7da184cd00c7ce6eacc590200bb9672de7",
-                "reference": "7c4e7a7da184cd00c7ce6eacc590200bb9672de7",
-=======
             "version": "2.11.0",
             "source": {
                 "type": "git",
@@ -6051,7 +5965,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/facade/ignition/zipball/dc6818335f50ccf0b90284784718ea9a82604286",
                 "reference": "dc6818335f50ccf0b90284784718ea9a82604286",
->>>>>>> 638e4370e43783c72ff56c5de348529c298a1b6b
                 "shasum": ""
             },
             "require": {
@@ -6114,11 +6027,7 @@
                 "issues": "https://github.com/facade/ignition/issues",
                 "source": "https://github.com/facade/ignition"
             },
-<<<<<<< HEAD
-            "time": "2021-07-20T14:01:22+00:00"
-=======
             "time": "2021-07-12T15:55:51+00:00"
->>>>>>> 638e4370e43783c72ff56c5de348529c298a1b6b
         },
         {
             "name": "facade/ignition-contracts",
