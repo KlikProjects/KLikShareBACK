@@ -108,6 +108,13 @@ Para ejecutar los tests hay que descomentar 2 lineas en el "phpunit.xml"
 
 # KlikShare
 
+## 🚀 Comenzando
+
+La aplicación tiene 2 partes, una parte back Laravel y una parte front en Vue.js.
+
+Las dos partes están conectadas con un sistema de API's y usando token para poder validar los usuarios.
+
+
 ## 🛠️ Herramientas usadas en este proyecto
 <ul>
   <li>Visual Studio Code</li>
