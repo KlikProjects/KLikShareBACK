@@ -143,4 +143,4 @@ Las dos partes están conectadas con un sistema de API's y usando token para pod
   <li>Solomon</li>
 </ul>
 
-También pueden mirar la lista de todos los [contribuyentes](https://github.com/KlikProjects/KLikShare/graphs/contributors) quienes han participado en este proyecto.  
+También pueden mirar la lista de todos los [contribuyentes](https://github.com/KlikProjects/KLikShareBACK/pulse) quienes han participado en este proyecto.  
