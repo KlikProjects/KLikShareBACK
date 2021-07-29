@@ -30,13 +30,17 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $product = Product::create([
+        $user = Auth::user();
+
+
+        $product= Product::create([
+
             'title' => $request->title,
             'description' => $request->description,
             'image' => $request->image,
             'category' => $request->category,
             'klikcoinsProducts' => $request->klikcoinsProducts,
-            'user_id' => $request->user_id
+            'user_id' => $user->id,
         ]);
 
         $product->save();
@@ -45,8 +49,12 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
-        $product = Product::Find($id);
-        $product->update([
+        $user = Auth::user();
+        $product = Product::find($id);
+        $isTheCreator = $product->isTheCreator($user);
+        if ($isTheCreator) {
+
+            $product->update([
 
             'title' => $request->title,
             'description' => $request->description,
@@ -55,8 +63,9 @@ class ProductController extends Controller
             'klikcoinsProducts' => $request->klikcoinsProducts,
         ]);
 
-        $product->save();
-        return response()->json($product, 200);
+            $product->save();
+            return response()->json($product, 200);
+        }
     }
 
     public function destroy($id)
@@ -74,12 +83,15 @@ class ProductController extends Controller
     public function request($id)
     {
         $user = Auth::user();
+
         $product = Product::find($id);
+        $alreadyRequested = $product->checkIfAlreadySolicited($user);
 
-        $alreadyInscribed = $product->checkIfAlreadySolicited($user);
-
-        if (!$alreadyInscribed) {
+         if (!$alreadyRequested) {
             $product->userRequest()->attach($user);
+            return response()->json($user, 200);
+        }else{
+            return response()->json(null,500);
         }
     }
 
@@ -96,7 +108,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $usersRequest = $product->userRequest;
 
-        return response()->json($product, 200);
+        return response()->json($usersRequest, 200);
     }
 
     public function giveToUser($productID, $userID)
@@ -114,15 +126,15 @@ class ProductController extends Controller
     public function sumKlikcoins($product)
     {
 
-        $id = Auth::id();
-        $user = User::find($id);
+        $id=Auth::id();
+        $user=User::find($id);
 
         $user->klikcoinsUsers += $product->klikcoinsProducts;
         $user->update([
             'klikcoinsUsers' => $user->klikcoinsUsers
         ]);
         $user->save();
-        return response()->json($user, 200);
+        return $this->sendResponse($user->name, 'User register successfully.');
     }
 
     public function productsReceived($id)
@@ -145,4 +157,18 @@ class ProductController extends Controller
 
         return response()->json($products, 200);
     }
+
+    public function getUserContacts(){
+    $user= Auth::user();
+    $products = $user->product;
+    dd($products);
+    foreach($products as $product){
+        $product->userRequest();
+
+    }
+    return response()->json($product, 200);
 }
+
+
+}
+

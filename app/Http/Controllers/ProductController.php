@@ -94,22 +94,21 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = Auth::user();
         $product = Product::Find($id);
 
-        // $product->update($request->all());
-        // $product->save();
+        $isTheCreator = $product->isTheCreator($user);
 
-        $product->update([
+        if ($isTheCreator) {
+            $product->update([
 
-            'title' => $request->newtitle,
-            'description' => $request->newdescription,
-            'image' => $request->newimage,
-            'category' => $request->newcategory,
-            'klikcoinsProducts' => $request->newklikcoins,
-        ]);
-
-
-        return redirect()->route('home');
+                'title' => $request->newtitle,
+                'description' => $request->newdescription,
+                'image' => $request->newimage,
+                'category' => $request->newcategory,
+                'klikcoinsProducts' => $request->newklikcoins,
+            ]);
+        }
     }
 
     /**
@@ -200,12 +199,5 @@ class ProductController extends Controller
         $productsReceived->all();
 
         return view('productsForms.productsReceived', ["productsReceived" => $productsReceived]);
-    }
-
-    public function search($request)
-    {
-        $products = Product::where('title', 'LIKE', '%'.$request.'%')->get();
-
-        return view('home', compact('products'));
     }
 }

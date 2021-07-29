@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\API\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,21 +18,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::get('/products',[ProductController::class,'index'])->name('apihome');
-Route::get('/products/{id}',[ProductController::class,'show'])->name('apishow');
-Route::post('/products', [ProductController::class, 'store'])->name('apistore');
-Route::put('/products/{id}',[ProductController::class,'update'])->name('apiupdate');
-Route::delete('/products/{id}',[ProductController::class,'destroy'])->name('apidestroy');
-Route::get('/products/{id}/request', [ProductController::class, 'request'])->name('apirequest');
-Route::get('/products/{id}/unrequest', [ProductController::class, 'unrequest'])->name('apiunrequest');
+Route::post('/register', [RegisterController::class, 'register']);
+Route::post('/login', [RegisterController::class, 'login']);
+Route::post('/logout', [RegisterController::class, 'logout']);
+Route::get('/user', [UserController::class, 'getUserData']);
+Route::get('/requestedProducts', [UserController::class, 'getRequestedProducts'])->middleware(['auth:api']);
 
 
-Route::get('/users/{id}',[UserController::class,'userProfile']);
-Route::get('/users',[UserController::class,'index']);
+// Route::middleware('auth:api')->group( function () {
+//     Route::resource('products', ProductController::class);
+// });
+
+
+Route::get('/products',[ProductController::class,'index']);
+Route::get('/products/{id}',[ProductController::class,'show']);
+Route::post('/products', [ProductController::class, 'store'])->middleware(['auth:api']);
+Route::put('/products/{id}',[ProductController::class,'update'])->middleware(['auth:api']);
+Route::delete('/products/{id}',[ProductController::class,'destroy'])->middleware(['auth:api']);
+Route::get('/products/{id}/request', [ProductController::class, 'request'])->name('apirequest')->middleware(['auth:api']);
+Route::get('/products/{id}/unrequest', [ProductController::class, 'unrequest'])->name('apiunrequest')->middleware(['auth:api']);
+Route::get('/contacts', [ProductController::class, 'getUserContacts'])->name('apigetUserContacts')->middleware(['auth:api']);
+
+
+
 
 Route::get('/usersRequest/{id}', [ProductController::class, 'usersRequest'])->name('usersRequest');
 Route::get('/giveToUser/{productID}/{userID}', [ProductController::class, 'giveToUser'])->name('apiGiveUser');
