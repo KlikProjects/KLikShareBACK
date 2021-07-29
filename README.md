@@ -1,82 +1,180 @@
-instalacion
+<p align="center"><img src="./public/img/Readme.MD/screenshootFigma/logofinal.PNG?raw=true" width="400"></a></p>
+
+
+KLikShare
+============
+
+***
+
+## Contexto del proyecto
+
+Crear una web donde un usuario puede poner objetos para regalar y donde otros usuarios lo pueden solicitar, un wallapop gratis.
+
+En este proyecto vamos a desarrollar una startup tecnológia y su aplicación Web MVP.
+
+Para ello buscaremos resolver un problema actual mediante una solución Web, prepararemos un Pitch para la presentación a posibles inversores, diseñaremos un prototipo, un RoadMap y desarrollaremos el producto mínimo viable.
+
+## Requisitos funcionales
+
+La aplicación debe cumplir uno o más de estas características:
+<ul>
+<li>Características de Red Social</li>
+<li>Características de e-commerce</li>
+<li>Características de gestor de contenidos</li>
+<li>Características de accesibilidad para colectivos vulnerables</li>
+<li>Características de herramientas de apoyo a causas sociales o a colectivos vulnerables.</li>
+</ul>
+
+
+## Requisitos no funcionales:
+
+
+<ul>
+<li>La web deberá estar en un servidor aunque esté en desarrollo.</li>
+<li>Todos los requisitos y casos de uso deberán estar testeados (tests de aceptación).</li>
+<li>Todo el código fuera del framework deberá ser testeado (tests unitarios).</li>
+<li>Se deberá usar Laravel.</li>
+<li>Los procesos ‘largos’ deberán hacer uso de un sistemas de colas.</li>
+</ul>
+
+
+
+## Entrega:
+
+<ul>
+<li>- Un link a un repositorio de github</li>
+<li>- Readme del repositorio con mínimo: Explicación del proyecto, Diagramas (Flujo y DB: Entidad-Relación).</li>
+<li>- Sketch - mockup</li>
+<li>- Url en ‘deploy’.</li>
+<li>- Presentación en diapositivas</li>
+<li>- Pitch + Demo and code review</li>
+
+</ul>
+
+***
+***
+
+
+## Required
+
+- PHP 7.4 min
+- Composer installed
+
+## Install Project
+
+1. Clone git https://github.com/KlikProjects/KLikShareBACK.git
+2. Crear una base de datos en phpMyAdmin en local, con los credenciales - user : root, password : ""
+3. Nombre de base de datos : klikShare
+4. Ejecutar Migracion "php artisant migration:fresh --seed"
+5. La migracion creara 1 root como admin, 2 usuarios vendedores y 2 usuarios compradores al igual que una lista de productos ficticios.
+
+
+## Install
+
+- composer install and/or composer update
+- npm run watch
+
+Tambien
 
 passport :
 
-composer require laravel/passport
-
-php artisan migrate
-
-php artisan passport:install
-
-php artisan passport:client --personal
-
+- composer require laravel/passport
+- php artisan migrate
+- php artisan passport:install
+- php artisan passport:client --personal
 
 Fruitcake :
 
-composer require fruitcake/laravel-cors
-
-dentro de la seccion "protected $middleware" del fichero /app/Http/Kernel.php esta linea \Fruitcake\Cors\HandleCors::class,
-
+- composer require fruitcake/laravel-cors
+- dentro de la seccion "protected $middleware" del fichero /app/Http/Kernel.php esta linea \Fruitcake\Cors\HandleCors::class,
 
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+## Run tests
+
+Para ejecutar los tests hay que descomentar 2 lineas en el "phpunit.xml"
+```php
+    <server name="DB_CONNECTION" value="sqlite"/>
+    <server name="DB_DATABASE" value=":memory:"/>
+```
+        
+- vendor/bin/phpunit 
+- OK (8 tests, 13 assertions)
+<img src="./public/img/Readme.MD/test/test.jpg?raw=true" width=60%>
+
+***
+***
+
+
+# Klik & Learn
+
+## 🚀 Comenzando
+
+Dónde encontrar el proyecto en producción:
+
+http://klikandlearn.herokuapp.com/
+
+
+## 🛠️ Mockup de este proyecto
+
+Mockup de cómo pensábamos que deberían ser las pantallas y sus funcionalidades:
+
+<p align="center"> 
+<img src="./public/img/Readme.MD/screenshootFigma/figma1.PNG?raw=true" width=30%>
+<img src="./public/img/Readme.MD/screenshootFigma/figma2.PNG?raw=true" width=30%>
+<img src="./public/img/Readme.MD/screenshootFigma/figma3.PNG?raw=true" width=25%>
 </p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ⚙️ Capturas pantalla formato móvil 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p align="center"> 
+<img src="./public/img/Readme.MD/screenshootMobil/mobileHome.PNG?raw=true" width=25%>
+<img src="./public/img/Readme.MD/screenshootMobil/mobileMyEvents.PNG?raw=true" width=25%>
+<img src="./public/img/Readme.MD/screenshootMobil/mobileShow.PNG?raw=true" width=25%>
+</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## ⚙️ Capturas pantalla formato tablet
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<p align="center"> 
+<img src="./public/img/Readme.MD/screenshootTablet/tabletHome.PNG?raw=true" width=30%>
+<img src="./public/img/Readme.MD/screenshootTablet/tabletMyEvents.PNG?raw=true" width=30%>
+<img src="./public/img/Readme.MD/screenshootTablet/tabletShow.PNG?raw=true" width=30%>
+</p>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## 🛠️ Herramientas usadas en este proyecto
+<ul>
+  <li>Visual Studio Code</li>
+  <li>Trello</li>
+  <li>Figma</li>
+  <li>Metodologías Ágiles</li>
+  <li>Planning Poker</li>
+  <li>GoogleDocs</li>
+  <li>GoogleFonts</li>
+  <li>Zoom</li>
+  <li>Bootstrap</li>
+  <li>Heroku</li>
+  <li>Laravel</li>
+  <li>SQL</li>
+  <li>PHPMyAdmin</li>
+</ul>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+## ✒️ Autores 
+<ul>
+  <li>Berta</li>
+  <li>David (Product Owner)</li>
+  <li>Gabriela</li>
+  <li>Joan (Scrum Master)</li>
+  <li>Jose Miguel</li>
+</ul>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+También pueden mirar la lista de todos los [contribuyentes](https://github.com/KlikProjects/KlikandLearn/graphs/contributors) quienes han participado en este proyecto.  
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
