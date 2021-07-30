@@ -168,8 +168,7 @@ class DatabaseSeeder extends Seeder
         Product::factory()->create([
             'title' => 'Bicicleta estática',
             'description' => 'Se regala perchero tambien conocido como bicicleta estática por falta de uso y espacio, me salia mejor comprar un armario',
-            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQexuWdsB-Rvd_SwKa7uPye7w9JP5UYhkciyA&usqp=CAU',
-            'klikcoinsProducts' => '100',
+            'image' => 'https://cdn.wallapop.com/images/10420/ax/uw/__/c10420p661531446/i2090780050.jpg?pictureSize=W320', 'klikcoinsProducts' => '100',
             'user_id' => '5',
         ]);
         Product::factory()->create([
