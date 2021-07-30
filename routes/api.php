@@ -30,14 +30,18 @@ Route::get('/requestedProducts', [UserController::class, 'getRequestedProducts']
 // });
 
 
-Route::get('/products',[ProductController::class,'index']);
-Route::get('/products/{id}',[ProductController::class,'show']);
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/{id}', [ProductController::class, 'show']);
 Route::post('/products', [ProductController::class, 'store'])->middleware(['auth:api']);
-Route::put('/products/{id}',[ProductController::class,'update'])->middleware(['auth:api']);
-Route::delete('/products/{id}',[ProductController::class,'destroy'])->middleware(['auth:api']);
+Route::put('/products/{id}', [ProductController::class, 'update'])->middleware(['auth:api']);
+Route::delete('/products/{id}', [ProductController::class, 'destroy'])->middleware(['auth:api']);
 Route::get('/products/{id}/request', [ProductController::class, 'request'])->name('apirequest')->middleware(['auth:api']);
 Route::get('/products/{id}/unrequest', [ProductController::class, 'unrequest'])->name('apiunrequest')->middleware(['auth:api']);
 Route::get('/contacts', [ProductController::class, 'getUserContacts'])->name('apigetUserContacts')->middleware(['auth:api']);
+
+Route::put('/checkIfRequested/{id}', [ProductController::class, 'checkIfRequested'])->name('apicheckIfRequested')->middleware(['auth:api']);
+
+Route::get('/myProducts', [ProductController::class, 'myProducts'])->middleware(['auth:api']);
 
 
 
@@ -51,6 +55,3 @@ Route::get('/search/{search}', [ProductController::class, 'search'])->name('sear
 
 Route::get('/productsReceived/{id}', [ProductController::class, 'productsReceived'])->name('apiproductsReceived');
 Route::get('/productsDonated/{id}', [ProductController::class, 'productsDonated'])->name('apiproductsDonated');
-
-
-
