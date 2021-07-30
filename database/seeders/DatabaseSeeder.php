@@ -178,7 +178,7 @@ class DatabaseSeeder extends Seeder
         ]);
         Product::factory()->create([
             'title' => 'Visca Barça',
-            'description' => 'Se regala el bien más preciado de mi marido por serme infiel, es talla L y siempre se ha cuidado como si fuera oro',
+            'description' => 'Se regala el bien mas preciado de mi marido por serme infiel, es talla L y siempre se ha cuidado como si fuera oro',
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMN_mMaJ7LxnBYaYuNtPdjEViY0m4nhzE0pg&usqp=CAU',
             'klikcoinsProducts' => '30',
             'user_id' => '5',
@@ -241,4 +241,5 @@ class DatabaseSeeder extends Seeder
             'user_id' => '2',
             ]);
         }
+    
 }
